@@ -1,0 +1,21 @@
+<?
+include_once($_SERVER["DOCUMENT_ROOT"] . "/common/sess_common.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/Template.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/ConnectionPool.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/FrontCommonUtil.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/job/cscenter/NoticeListDAO.php");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$template = new Template();
+$frontUtil = new FrontCommonUtil();
+$dao = new NoticeListDAO();
+
+$rs = $dao->selectNoticeRecent5List($conn);
+$noti = makeNotiRecent5ListHtml($rs);
+
+$template->reg("noti", $noti);
+
+$conn->Close();
+?>

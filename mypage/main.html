@@ -1,0 +1,199 @@
+<?
+include_once($_SERVER["DOCUMENT_ROOT"] . "/common/sess_common.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/Template.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/ConnectionPool.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/FrontCommonUtil.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/job/common/CommonDAO.php");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$template = new Template();
+$frontUtil = new FrontCommonUtil();
+$dao = new CommonDAO();
+
+$session = $fb->getSession();
+
+$seqno = $session["org_member_seqno"];
+$template->reg("member_name", $session["member_name"]); 
+$template->reg("group_name", $session["group_name"]); 
+$template->reg("member_photo_path", $session["member_photo_path"]); 
+$template->reg("grade", $session["grade"]); 
+$template->reg("grade_name_ko", $session["grade_name_ko"]); 
+$template->reg("grade_name_en", $session["grade_name_en"]); 
+$template->reg("bank_name", $session["bank_name"]); 
+$template->reg("ba_num", $session["ba_num"]); 
+$template->reg("member_dvs", $session["member_dvs"]); 
+$template->reg("member_typ", $session["member_typ"]); 
+$template->reg("own_point", number_format($session["own_point"])); 
+$template->reg("cp_count", $session["cp_count"]); 
+$template->reg("prepay_price", number_format($session["prepay_price"])); 
+$template->reg("order_lack_price", number_format($session["order_lack_price"])); 
+
+if ($session["grade"] == 1) {
+    $template->reg("grade1", "_on");
+} else if ($session["grade"] == 2) {
+    $template->reg("grade2", "_on");
+} else if ($session["grade"] == 3) {
+    $template->reg("grade3", "_on");
+} else if ($session["grade"] == 4) {
+    $template->reg("grade4", "_on");
+} else if ($session["grade"] == 5) {
+    $template->reg("grade5", "_on");
+} else if ($session["grade"] == 6) {
+    $template->reg("grade6", "_on");
+} else if ($session["grade"] == 7) {
+    $template->reg("grade7", "_on");
+} else if ($session["grade"] == 8) {
+    $template->reg("grade8", "_on");
+} else if ($session["grade"] == 9) {
+    $template->reg("grade9", "_on");
+} else if ($session["grade"] == 10) {
+    $template->reg("grade10", "_on");
+}
+
+//등급정보
+if ($session["grade"] != 10) {
+    $param = array();
+    $param["table"] = "member_grade_policy";
+    $param["col"] = "sales_start_price, grade_name";
+    $param["where"]["grade"] = intVal($session["grade"]) + 1;
+
+    $rs = $dao->selectData($conn, $param);
+
+    $html  = "<strong>%s</strong> 등급 샹향까지<br>";
+    $html .= "\n&#8361;%s 필요합니다.<br>";
+
+    $start_price = intVal($rs->fields["sales_start_price"]) - intVal($session["cumul_sales_price"]);
+
+    $rs_html = sprintf($html, $rs->fields["grade_name"]
+                            , number_format($start_price));
+
+    $template->reg("grade_info", $rs_html); 
+}
+
+//담당자 정보
+$html  = "<dt>%s</dt>";
+$html .= "<dd>%s %s</dd>";
+$html .= "<dd class=\"last\">%s</dd>";
+
+$param = array();
+$param["table"] = "empl";
+$param["col"] = "name, job_code, tel_num, posi_code, admin_auth";
+$param["where"]["depar_code"] = $session["biz_resp"];
+$param["where"]["cpn_admin_seqno"] = $session["sell_site"];
+$param["where"]["admin_auth"] = "CM";
+
+$rs = $dao->selectData($conn, $param);
+
+$rs_html = "";
+$param = array();
+$param["table"] = "posi_admin";
+$param["col"] = "posi_name";
+$param["where"]["posi_code"] = $rs->fields["posi_code"];
+
+$posi_rs = $dao->selectData($conn, $param);
+
+$rs_html .= sprintf($html, $rs->fields["admin_auth"]
+                         , $rs->fields["name"]
+                         , $posi_rs->fields["posi_name"]
+                         , $rs->fields["tel_num"]);
+
+$param = array();
+$param["table"] = "empl";
+$param["col"] = "name, job_code, tel_num, posi_code, admin_auth";
+$param["where"]["depar_code"] = $session["biz_resp"];
+$param["where"]["cpn_admin_seqno"] = $session["sell_site"];
+$param["order"] = "admin_auth ASC";
+
+$rs = $dao->selectData($conn, $param);
+
+while ($rs && !$rs->EOF) {
+
+    if ($rs->fields["admin_auth"] != "CM") {
+        $param = array();
+        $param["table"] = "posi_admin";
+        $param["col"] = "posi_name";
+        $param["where"]["posi_code"] = $rs->fields["posi_code"];
+
+        $posi_rs = $dao->selectData($conn, $param);
+
+        $rs_html .= sprintf($html, $rs->fields["admin_auth"]
+                , $rs->fields["name"]
+                , $posi_rs->fields["posi_name"]
+                , $rs->fields["tel_num"]);
+    }
+    $rs->MoveNext();
+}
+
+$param = array();
+$param["table"] = "empl";
+$param["col"] = "name, job_code, tel_num, posi_code, admin_auth";
+$param["where"]["depar_code"] = $session["release_resp"];
+$param["where"]["cpn_admin_seqno"] = $session["sell_site"];
+
+$rs = $dao->selectData($conn, $param);
+
+while ($rs && !$rs->EOF) {
+
+    $param = array();
+    $param["table"] = "posi_admin";
+    $param["col"] = "posi_name";
+    $param["where"]["posi_code"] = $rs->fields["posi_code"];
+
+    $posi_rs = $dao->selectData($conn, $param);
+
+    $rs_html .= sprintf($html, "출고"
+                           , $rs->fields["name"]
+                           , $posi_rs->fields["posi_name"]
+                           , $rs->fields["tel_num"]);
+    $rs->MoveNext();
+}
+
+$template->reg("resp", $rs_html); 
+
+//기본 배송지
+$param = array();
+$param["table"] = "member_dlvr";
+$param["col"] = "dlvr_name, recei, tel_num, cell_num, zipcode, addr, addr_detail";
+$param["where"]["member_seqno"] = $seqno;
+$param["where"]["basic_yn"] = "Y";
+
+$rs = $dao->selectData($conn, $param);
+
+$rs_html = "";
+$html  = "\n                <dt>별칭</dt>";
+$html .= "\n                <dd>%s</dd>";
+$html .= "\n                <dt>받는 분</dt>";
+$html .= "\n                <dd class=\"last\">%s</dd>";
+$html .= "\n                <dt>휴대전화</dt>";
+$html .= "\n                <dd>%s</dd>";
+$html .= "\n                <dt>일반전화</dt>";
+$html .= "\n                <dd class=\"last\">%s</dd>";
+$html .= "\n                <dt>주소</dt>";
+$html .= "\n                <dd class=\"last\">%s %s</dd>";
+$html .= "\n                <dd class=\"last\">%s</dd>";
+
+$rs_html = sprintf($html, $rs->fields["dlvr_name"]
+                        , $rs->fields["recei"]
+                        , $rs->fields["tel_num"]
+                        , $rs->fields["cell_num"]
+                        , $rs->fields["zipcode"]
+                        , $rs->fields["addr"]
+                        , $rs->fields["addr_detail"]);
+
+$template->reg("dlvr", $rs_html); 
+
+// 로그인 상태인지 체크하는부분 include
+include_once($_SERVER["DOCUMENT_ROOT"] . "/common/login_check.php");
+
+// 기본사용 자바스크립트, css 파일 불러오는 용
+$template->reg("dir", "mypage"); 
+$template->reg("page", "main"); 
+
+//design_dir 경로
+$template->reg("design_dir", "/design_template"); 
+$template->htmlPrint($_SERVER["PHP_SELF"]); 
+
+$conn->Close();
+?>

@@ -1,0 +1,65 @@
+<?
+/********************************************************************
+***** 프로 젝트 : 총무팀
+***** 개  발  자 : 김성진
+***** 수  정  일 : 2016.05.13
+********************************************************************/
+
+/********************************************************************
+***** 라이브러리 인클루드
+********************************************************************/
+
+include_once($_SERVER["DOCUMENT_ROOT"] . "/common/sess_common.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/Template.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/ConnectionPool.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/FrontCommonUtil.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/job/common/CommonDAO.php");
+
+
+/********************************************************************
+***** 클래스 선언
+********************************************************************/
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$template = new Template();
+$frontUtil = new FrontCommonUtil();
+$dao = new CommonDAO();
+
+/********************************************************************
+***** 로그인 상태인지 체크하는부분 include
+********************************************************************/
+
+include_once($_SERVER["DOCUMENT_ROOT"] . "/common/login_check.php");
+
+
+/********************************************************************
+***** 기본사용 자바스크립트, css 파일 불러오는 용
+********************************************************************/
+
+$template->reg("searchParam", $fb->form("searchParam"));
+$template->reg("dir", "mypage");
+$template->reg("page", "estimate_list");
+
+
+/********************************************************************
+***** 스킨 경로
+********************************************************************/
+
+$template->reg("design_dir", "/design_template");
+
+
+/********************************************************************
+***** html 출력
+********************************************************************/
+
+$template->htmlPrint($_SERVER["PHP_SELF"]);
+
+
+/********************************************************************
+***** DB 컨넥션 종료
+********************************************************************/
+
+$conn->Close();
+?>

@@ -1,0 +1,106 @@
+<?
+include_once($_SERVER["DOCUMENT_ROOT"] . "/common/sess_common.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/common_define/common_info.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/Template.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/ConnectionPool.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/FrontCommonUtil.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/job/member/MemberJoinDAO.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . '/com/nexmotion/doc/member/JoinHtml.php');
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$template = new Template();
+$util = new FrontCommonUtil();
+$dao = new MemberJoinDAO();
+
+//회원구분
+$dvs = $fb->form("dvs");
+$template->reg("dvs", $dvs); 
+
+$etprs_html = <<<HTML
+                <tr>
+                    <th>업체명(상호)</th>
+                    <td><input type="text"></td>
+                    <th>사업자등록번호</th>
+                    <td>
+                        <input type="text" class="letter3" maxlength="3">
+                        <input type="text" class="letter2" maxlength="2">
+                        <input type="text" class="letter5" maxlength="5">
+                    </td>
+                </tr>
+HTML;
+
+$tob_html = <<<HTML
+                <tr>
+                    <th>업태</th>
+                    <td><input type="text"></td>
+                    <th>업종</th>
+                    <td><input type="text"></td>
+                </tr>
+
+HTML;
+
+$note_html = <<<HTML
+        <p class="note">주문담당자 및 회계담당자는 회원가입 후 마이페이지 > 회원정보 수정에서 설정하실 수 있습니다.</p>
+HTML;
+
+$html = "\n<option value=\"%s\">%s</option>";
+
+//월
+$month_html = "";
+for ($i=1; $i <= 12; $i++) {
+    $day = str_pad($i,"2","0",STR_PAD_LEFT);
+    $month_html .= sprintf($html, $day, $day);
+}
+
+//이메일
+$email_html = "";
+foreach (EMAIL_DOMAIN as $val) {
+    $email_html .= sprintf($html, $val, $val);
+}
+
+
+//전화번호
+$tel_html = "";
+foreach (TEL_NUM as $val) {
+    $tel_html .= sprintf($html, $val, $val);
+}
+
+//휴대폰 번호
+$cel_html = "";
+foreach (CEL_NUM as $val) {
+    $cel_html .= sprintf($html, $val, $val);
+}
+
+//회원가입 항목
+$param = array();
+$param["member_dvs"] = $dvs;
+$param["member_name"] = "회원명";
+$param["month_html"] = $month_html;
+$param["email_html"] = $email_html;
+$param["tel_html"] = $tel_html;
+$param["cel_html"] = $cel_html;
+
+if ($dvs === "기업") {
+    $param["member_name"] = "대표자";
+    $param["etprs_html"] = $etprs_html;
+    $param["tob_html"] = $tob_html;
+    $param["note_htm"] = $note_htm;
+}
+
+$template->reg("join_html", getJoinHtml($param)); 
+
+// 로그인 상태인지 체크하는부분 include
+include_once($_SERVER["DOCUMENT_ROOT"] . "/common/login_check.php");
+
+// 기본사용 자바스크립트, css 파일 불러오는 용
+$template->reg("dir", "member"); 
+$template->reg("page", "join_3"); 
+
+//design_dir 경로
+$template->reg("design_dir", "/design_template"); 
+$template->htmlPrint($_SERVER["PHP_SELF"]); 
+
+$conn->Close();
+?>

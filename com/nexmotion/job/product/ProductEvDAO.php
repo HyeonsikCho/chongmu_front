@@ -1,0 +1,15 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: USER
+ * Date: 2016-08-23
+ * Time: 오후 3:15
+ */
+
+include_once($_SERVER["DOCUMENT_ROOT"] . '/com/nexmotion/job/common/ProductCommonDAO.php');
+
+class ProductEvDAO extends ProductCommonDAO {
+    function __construct() {
+    }
+}
+?>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    [TPH_I/common/head.html]
+    <script src="[TPH_Vdesign_dir]/js/lib/jquery.form.min.js"></script>
+    <script src="[TPH_Vdesign_dir]/js/product/aft_lib.js"></script>
+</head>
+<body>
+<header class="top">
+    [TPH_I/common/header.html]
+</header>
+<section class="contents ev_normal">
+    <header class="title">
+        <ol class="location">
+            [TPH_I/common/home_btn.html]
+            <li><span>상품 주문</span></li>
+            <li><span>봉투</span></li>
+        </ol>
+        [TPH_I/product/common/cate_select.html]
+
+        <h2><img src="[TPH_Vdesign_dir]/images/product/title/[TPH_Vcate_sortcode].png" alt="[TPH_Vcate_name]"></h2>
+        <span class="description [TPH_Vcate_dvs]">[TPH_Vcate_dscr]</span>
+    </header>
+    <div class="rightWrap productOptions">
+        [TPH_I/product/ev/ev_master_info.html]
+        [TPH_I/product/common/purchase.html]
+        <section style="display:none">
+            <img src="[TPH_Vdesign_dir]/images/product/feature_background.png" class="title" style="margin-top: 30px;width:560px">
+        </section>
+    </div>
+    <div class="leftWrap">
+        [TPH_I/product/common/picture.html]
+        [TPH_I/product/common/banner.html]
+
+        <!--ul class="util">
+            <li class="templete"><button type="button" onclick="layerPopup('l_information', 'popup/l_information.html', '1'); return false;">템플릿 다운로드</button></li>
+            <li class="date"><button type="button" onclick="layerPopup('l_delivery', 'popup/l_delivery.html')">출고일 확인</button></li>
+            <li class="guide"><button type="button" onclick="layerPopup('l_information', 'popup/l_information.html', '3'); return false;">디프린팅 가이드</button></li>
+            <li class="detail"><button type="button" onclick="layerPopup('l_information', 'popup/l_information.html'); return false;">상세보기</button></li>
+        </ul-->
+
+        <section class="preview" style="display:none">
+            <img src="[TPH_Vdesign_dir]/images/product/preview_title.png" class="title" alt="Item Preview">
+            <div class="paper"></div>
+            <div class="line cutting"></div>
+            <div class="line working"></div>
+            <div class="line design"></div>
+            <div class="line tomson"></div>
+            <ul class="btns">
+                <li class="cuttingLine on"><button type="button">재단선</button></li>
+                <li class="workingLine on"><button type="button">작업선</button></li>
+                <li class="designLine"><button type="button">디자인선</button></li>
+                <li type="thomson" class="tomsonLine"><button>도무송선</button></li>
+                <li class="baseDesign on"><button type="button">기본디자인</button></li>
+                <li class="customeDesign"><button type="button">내디자인</button></li>
+            </ul>
+        </section>
+        <div class="quickEstimate" style="display:none;">
+            <h3><div class="wrap"><img src="[TPH_Vdesign_dir]/images/product/quickestimate_h2.png" alt="빠른 견적서"></div></h3>
+            [TPH_Vquick_esti]
+            <div class="function">
+                <strong><button type="button">즉시주문</button></strong>
+                <button type="button" onclick="goCart();">장바구니</button>
+                <button type="button" class="sub">견적서 출력</button>
+            </div>
+        </div>
+</section>
+<footer>
+    [TPH_I/common/footer.html]
+</footer>
+[TPH_I/product/common/estimate_pop.html]
+</body>
+</html>

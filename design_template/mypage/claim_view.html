@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    [TPH_I/common/head.html]
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+</head>
+<body>
+<header class="top">
+    [TPH_I/common/header.html]
+</header>
+<section class="contents lnb claimInfo">
+    <header class="title">
+        <h2><img src="[TPH_Vdesign_dir]/images/mypage/title.png" alt="마이페이지"></h2>
+        <ol class="location">
+            [TPH_I/common/home_btn.html]
+            <li><span>마이페이지</span></li>
+            <li><span>클레임 정보</span></li>
+            <li><span>클레임 처리내역</span></li>
+        </ol>
+    </header>
+    <nav class="lnb">
+    </nav>
+    <h3 class="pageTitle">클레임 처리내역</h3>
+    <input type="hidden" id="claim_seqno" value="[TPH_Vclaim_seqno]">
+    <table class="information question _details">
+        <colgroup>
+            <col width="120">
+            <col>
+            <col width="120">
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <th colspan="4">클레임 상세사항</th>
+            </tr>
+        </thead>
+        <tbody class="_on">
+            <tr class="_orderDetails">
+                <td colspan="4">
+                    <div class="wrap">
+                        <figure><img src="../../images/sample/order_cart_product.png" alt="상품명"></figure>
+                        <dl>
+                            <dt>주문일</dt>
+                            <dd>2013-11-13</dd>
+                            <dt>주문번호</dt>
+                            <dd>15938171990</dd>
+                            <dt>접수구분</dt>
+                            <dd>일러스트CS</dd>
+                        </dl>
+                        <dl>
+                            <dt>인쇄물 제목</dt>
+                            <dd>한솥도시락 컬러 전단</dd>
+                        </dl>
+                        <dl>
+                            <dt>상품내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>합판전단(주문형)</li>
+                                    <li>아트지 백색 100g</li>
+                                    <li>A4</li>
+                                    <li>단면칼라 4도</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>후공정</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>코팅</li>
+                                    <li>네귀돌이</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>수량/건</dt>
+                            <dd>1,000 x 1 건</dd>
+                        </dl>
+                        <dl>
+                            <dt>할인내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>회원등급할인 &#8361; 5,000</li>
+                                    <li>이벤트할인 &#8361; 0</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>무게</dt>
+                            <dd>0.2Kg</dd>
+                            <dt>배송</dt>
+                            <dd>택배</dd>
+                        </dl>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <th scope="row">클레임 제목</th>
+                <td colspan="3">인쇄에 잡티가 있어요.</td>
+            </tr>
+            <tr>
+                <th scope="row">클레임 유형</th>
+                <td>인쇄잡티</td>
+                <th scope="row">클레임 견본</th>
+                <td><a href="#none" target="_blank">잡티.jpg</a></td>
+            </tr>
+            <tr>
+                <th scope="row">클레임 내용</th>
+                <td colspan="3">인쇄에 잡티가 있어요. 확인해주세요.</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="information answer">
+        <colgroup>
+            <col width="120">
+            <col>
+            <col width="120">
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <th colspan="4">클레임 처리내역</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">담당자</th>
+                <td>홍길동</td>
+                <th scope="row">상태</th>
+                <td>처리 완료</td>
+            </tr>
+            <tr>
+                <th scope="row">발생 비용</th>
+                <td>&#8361;5,000</td>
+                <th scope="row">비용 부담</th>
+                <td>상호</td>
+            </tr>
+            <tr>
+                <th scope="row">처리내용</th>
+                <td colspan="3">
+                    잡티 확인하였습니다.<br>
+                    재인쇄하여 발송해드리겠습니다.<br>
+                    이틀 정도 소요되며, 고객님께 불편을 드려 죄송합니다. 앞으로 더욱 품질관리에 신경 써 좋은 모습 보여드리도록 하겠습니다.<br>
+                    감사합니다.
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h4 class="information">추가 사항</h4>
+    <dl class="reply customer">
+        <dt>고객님</dt>
+        <dd>후공정 누락이 있습니다.</dd>
+    </dl>
+    <dl class="reply cs">
+        <dt>담당자</dt>
+        <dd>함께 처리하도록 하겠습니다.</dd>
+    </dl>
+    <dl class="reply customer write">
+        <dt>고객님</dt>
+        <dd>
+            <input type="text">
+            <button>작성</button>
+        </dd>
+    </dl>
+    <div class="function narrow">
+        <strong class="blue right"><button class="function">목록으로</button></strong>
+    </div>
+</section>
+<footer></footer>
+</body>
+</html>

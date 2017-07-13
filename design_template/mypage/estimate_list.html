@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    [TPH_I/common/head.html]
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+</head>
+<body>
+<header class="top">
+    [TPH_I/common/header.html]
+</header>
+<section class="contents estimateInfo">
+    <header class="title">
+        <ol class="location">
+            [TPH_I/common/home_btn.html]
+            <li><span>마이페이지</span></li>
+            <li><span>견적 정보</span></li>
+            <li><span>견적 관리</span></li>
+        </ol>
+    </header>
+    <h3 class="pageTitle">견적 관리</h3>
+    <form name="searchFrm" id="searchFrm">
+        <section class="searchCondition">
+            <div class="rowWrap">
+                <dl class="date">
+                    <dt>요청일</dt>
+                    <dd>
+                        [TPH_I/common/datepicker.html]
+                    </dd>
+                </dl>
+                <dl class="status last">
+                    <dt>진행상태</dt>
+                    <dd>
+                    <select id="state" name="state" class="fix_width150">
+                        <option value="">상태(전체)</option>
+                        <option value="대기">대기</option>
+                        <option value="중">중</option>
+                        <option value="완료">완료</option>
+                        <option value="수정">수정</option>
+                    </select>
+                    </dd>
+                </dl>
+            </div>
+            <div class="rowWrap">
+                <dl class="title">
+                    <dt>문의제목</dt>
+                    <dd><input type="text" onkeyup="searchEnt(event);return false;" name="title" id="title"></dd>
+                </dl>
+            </div>
+            <button class="search" onclick="search();return false;">검색</button>
+        </section>
+    </form>
+    <form name="frm" id="frm">
+        <input type="hidden" id="seq" name="seq"/>
+        <input type="hidden" id="searchParam" name="searchParam" value="[TPH_VsearchParam]"/>
+    </form>
+    <table class="list searchResult update">
+        <caption>
+            <div class="resultNum" id="resultNum">
+            </div>
+            <select onchange="changeListSize();" id="listSize" class="listNum">
+                <option value="10">10개씩 보기</option>
+                <option value="20">20개씩 보기</option>
+                <option value="50">50개씩 보기</option>
+            </select>
+        </caption>
+        <colgroup>
+            <col width="60">
+            <col width="80">
+            <col>
+            <col width="90">
+            <col width="80">
+            <col width="80">
+            <col width="70">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>요청일</th>
+                <th>문의제목</th>
+                <th>견적금액</th>
+                <th>등록일</th>
+                <th>문의자</th>
+                <th>상태</th>
+            </tr>
+        </thead>
+        <tbody id="list">
+        </tbody>
+    </table>
+    <ul class="paging" id="page">
+        <li><button class="on">1</button></li>
+    </ul>
+    <div class="function center">
+        <strong><button class="function" onclick="goWrite()">견적 문의</button></strong>
+    </div>
+</section>
+[TPH_I/common/quickMenu.html]
+<footer>
+    [TPH_I/common/footer.html]
+</footer>
+</body>
+</html>

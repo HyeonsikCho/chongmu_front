@@ -1,0 +1,44 @@
+<?
+include_once($_SERVER["DOCUMENT_ROOT"] . "/common/sess_common.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/Template.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/ConnectionPool.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/FrontCommonUtil.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/job/common/CommonDAO.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/job/order/CartDAO.php");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+$frontUtil = new FrontCommonUtil();
+
+$dao = new CartDAO();
+$template = new Template();
+$design_dir = "/design_template";
+include_once($_SERVER["DOCUMENT_ROOT"] . "/common/login_check.php");
+
+$param = array();
+$param['user_id'] = $fb->ss['MYSEC_ID'];
+$param['design_dir'] = $design_dir;
+// 기본사용 자바스크립트, css 파일 불러오는 용
+
+
+$rt_val = $dao->getCartList($conn, $param);
+$template->reg("dir", "order");
+$template->reg("page", "cart");
+$template->reg("cart_list" , $rt_val['html']);
+$template->reg("order_amnt" , number_format($rt_val['order_amnt']));
+$template->reg("taxadd_order_amnt" , number_format($rt_val['order_amnt'] + ($rt_val['order_amnt'] * 0.1)));
+
+
+//design_dir 경로
+$template->reg("design_dir", "/design_template");
+$template->htmlPrint($_SERVER["PHP_SELF"]);
+
+
+/********************************************************************
+***** 로그인 정보 가져오기
+********************************************************************/
+include_once($_SERVER["DOCUMENT_ROOT"] . "/common/login_check.php");
+
+
+$conn->Close();
+?>

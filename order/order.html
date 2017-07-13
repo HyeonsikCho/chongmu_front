@@ -1,0 +1,152 @@
+<?
+/********************************************************************
+***** 프로 젝트 : 총무팀
+***** 개  발  자 : 김성진
+***** 수  정  일 : 2016.05.03
+********************************************************************/
+
+/********************************************************************
+***** 라이브러리 인클루드
+********************************************************************/
+
+include_once($_SERVER["DOCUMENT_ROOT"] . "/common/sess_common.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/Template.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/ConnectionPool.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/FrontCommonUtil.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/job/order/OrderDAO.php");
+
+
+/********************************************************************
+***** 클래스 선언
+********************************************************************/
+
+$connectionPool = new ConnectionPool();                // DB 컨넥션 클래스 선언
+$conn = $connectionPool->getPooledConnection();
+
+$frontUtil = new FrontCommonUtil();
+$template = new Template();                                    // 템플릿 스킨 클래스 선언
+$dao = new OrderDAO();                                        // 주문정보 데이터 클래스 선언
+
+
+/********************************************************************
+***** html 스킨경로 선언
+********************************************************************/
+
+$design_dir = "/design_template";
+
+
+/********************************************************************
+***** 로그인 정보 가져오기
+********************************************************************/
+
+include_once($_SERVER["DOCUMENT_ROOT"] . "/common/login_check.php");
+
+
+
+/********************************************************************
+***** 파라미터 선언
+********************************************************************/
+
+$param = array();
+
+$param['user_id'] = $fb->ss['MYSEC_ID'];   // 유저아이디
+$param['ohash'] = $fb->ss['ohash'];           // 주문해시코드
+$param['order_no'] = $fb->fb['order_no'];     // 주문번호
+$param['design_dir'] = $design_dir;              // 해당파일 디자인 디렉토리
+
+
+/********************************************************************
+***** 주문정보 데이터 가져오기
+********************************************************************/
+
+$rt_val = $dao->getOrderList($conn, $param);
+
+$delivery_val = $dao->getDeliveryData($conn,$param);
+
+if($delivery_val['order_no']){
+	$delivery_check[0] = 'checked';
+	$delivery_check[1] = '';
+}else{
+	$delivery_check[0] = '';
+	$delivery_check[1] = 'checked';
+}
+
+$rt_val['addtax_order_amnt'] = upCeil($rt_val['addtax_order_amnt']);
+$rt_val['addtax_prd_amnt'] = upCeil($rt_val['addtax_prd_amnt']);
+$rt_val['all_addtax_prd_amnt'] = upCeil($rt_val['all_addtax_prd_amnt']);
+
+/********************************************************************
+***** 기본사용 자바스크립트, css 파일 불러오는 용
+********************************************************************/
+
+$template->reg("dir", "order");
+$template->reg("page", "order");
+$template->reg("order_list" , $rt_val['html']);
+$template->reg("order_amnt" , upCeil($rt_val['order_amnt']));
+$template->reg("addtax_order_amnt" , number_format($rt_val['addtax_order_amnt']));
+$template->reg("addtax_prd_amnt" , number_format($rt_val['all_addtax_prd_amnt']));
+$template->reg("pay_order_amnt" , $rt_val['addtax_order_amnt']);
+$template->reg("prd_amnt" , $rt_val['addtax_prd_amnt']);
+$template->reg("listcnt" , $rt_val['listcnt']);
+$template->reg("order_title", $rt_val['title']);
+$template->reg("order_f_title", $rt_val['f_title']);
+$template->reg("cart_prdlist_id", $fb->fb['cart_prdlist_id']);
+
+//echo $rt_val['order_amnt'] . '\n'; //215200
+//echo $rt_val['all_addtax_prd_amnt'] . '\n'; //236470
+//echo $rt_val['addtax_prd_amnt'] . '\n'; //234000
+
+//test
+$html = "";
+if($fb->ss['MYSEC_ID'] == 'KD0DKGK') {
+	$html = "<label><input type='radio' class='_bank' value='22' name='pay'>무통장입금</label>";
+	$template->reg("bankhtml", $html);
+}
+
+
+//echo var_dump($fb->fb['cart_prdlist_id']);
+
+
+
+
+/********************************************************************
+***** 배송비 관련 변수설정
+********************************************************************/
+
+$template->reg("delivery_chk1" , $delivery_check[0] );
+$template->reg("delivery_chk2" , $delivery_check[1] );
+$template->reg("delivery_amnt" , number_format($delivery_val['delivery_amnt']));
+$template->reg("rdelivery_amnt" , $delivery_val['delivery_amnt']);
+
+$template->reg("order_user_name" , $fb->ss['USER_NM']);
+$template->reg("order_user_phno", $fb->ss['PH_NO']);
+$template->reg("order_user_telno", $fb->ss['TEL_NO']);
+$template->reg("order_user_zipcode", $fb->ss['ZIPCODE']);
+$template->reg("order_user_addr1", $fb->ss['ADDR1']);
+$template->reg("order_user_addr2", $fb->ss['ADDR2']);
+
+$template->reg("server_name" ,$_SERVER['SERVER_NAME']);
+
+$template->reg("order_no",$fb->fb['order_no']);
+$template->reg("design_dir", "/design_template");
+
+
+/********************************************************************
+***** html 출력
+********************************************************************/
+
+$template->htmlPrint($_SERVER["PHP_SELF"]);
+
+
+/********************************************************************
+***** DB 컨넥션 종료
+********************************************************************/
+
+$conn->Close();
+
+function upCeil($orgPrice)
+{
+	$orgPrice = ceil($orgPrice*0.01) * 100;
+	return $orgPrice;
+}
+?>

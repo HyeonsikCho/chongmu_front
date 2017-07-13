@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    [TPH_I/common/head.html]
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+</head>
+<body>
+<header class="top">
+    [TPH_I/common/header.html]
+</header>
+<section class="contents sheet">
+    <header class="title">
+        <ol class="location">
+            <li><a href="#none" target="_self" title="첫 화면으로"><img src="[TPH_Vdesign_dir]/images/common/contents_location_home.png" alt="HOME"></a></li>
+            <li><span>주문서 작성</span></li>
+        </ol>
+        <h2><img src="[TPH_Vdesign_dir]/images/order/title/sheet.png" alt="주문서 작성"></h2>
+        <span class="description">주문정보와 배송정보를 입력하세요.</span>
+        <ol class="sequence">
+            <li><img src="[TPH_Vdesign_dir]/images/order/sequence_step1.png" alt="STEP1 장바구니"></li>
+            <li><img src="[TPH_Vdesign_dir]/images/order/sequence_step2_on.png" alt="STEP2 주문서 작성"></li>
+            <li><img src="[TPH_Vdesign_dir]/images/order/sequence_step3.png" alt="STEP3 주문완료"></li>
+        </ol>
+    </header>
+    <section class="form order">
+        <h3><img src="[TPH_Vdesign_dir]/images/order/sheet_title_order.png" alt="주문정보"></h3>
+
+        [TPH_Vsheet_list]
+    </section>
+    <section class="form delivery">
+        <h3><img src="[TPH_Vdesign_dir]/images/order/sheet_title_delivery.png" alt="배송정보"></h3>
+        <table class="input from">
+            <colgroup>
+                <col width="120">
+                <col>
+                <col width="120">
+                <col>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>보내시는 분</th>
+                    <td colspan="3">
+                        <label><input type="radio" name="fromPreset" onclick="changeFrom('memb');"> 회원정보와 동일</label>
+                        <label><input type="radio" name="fromPreset" onclick="changeFrom('cpn');"> 하이프린트 정보 입력</label>
+                            <label><input type="radio" name="fromPreset" checked="checked" onclick="changeFrom('new');"> 새로운 정보 입력</label>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">성명/상호</th>
+                        <td colspan="3"><input type="text" id="from_name" name="from_name" class="name"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">연락처</th>
+                        <td>
+                            <select id="from_tel_num1" name="from_tel_num1">
+                                [TPH_Vtel_num]
+                            </select>
+                            <input id="from_tel_num2" name="from_tel_num2" maxlength="4" onkeyup="onlyNumber(event, this.value);" type="text">
+                            <input id="from_tel_num3" name="from_tel_num3" maxlength="4" onkeyup="onlyNumber(event, this.value);" type="text">
+                        </td>
+                        <th scope="row">휴대전화</th>
+                        <td>
+                            <select id="from_cell_num1" name="from_cell_num1">
+                                [TPH_Vcell_num]
+                            </select>
+                            <input id="from_cell_num2" name="from_cell_num2" maxlength="4" onkeyup="onlyNumber(event, this.value);" type="text">
+                            <input id="from_cell_num3" name="from_cell_num3" maxlength="4" onkeyup="onlyNumber(event, this.value);" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">주소</th>
+                        <td colspan="3">
+                            <div class="rowWrap">
+                                <input type="text" id="from_zipcode" name="from_zipcode" readonly>
+                                <button type="button" onclick="getPostcode('from');">우편번호 찾기</button>
+                            </div>
+                            <div class="rowWrap">
+                                <input type="text" id="from_addr" name="from_addr" class="address" readonly>
+                                <input type="text" id="from_addr_detail" name="from_addr_detail" class="address">
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <section class="toSetting">
+                <ul class="_toNum">
+                    <li><label><input type="radio" name="toNum" class="_single"> 단일배송지</label></li>
+                    <li>
+                        <label><input type="radio" name="toNum" class="_multi"> 복수배송지</label>
+                        <select id="multi_to_num" name="multi_to_num" disabled>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <span class="note">배송지는 최대 5곳까지 설정할 수 있습니다.</span>
+                    </li>
+                </ul>
+                <label class="right"><input type="checkbox"> 배송정보를 문자메시지(SMS)로 수신합니다.</label>
+            </section>
+            <table class="input to" id="to_1">
+                <colgroup>
+                    <col width="120">
+                    <col>
+                    <col width="120">
+                    <col>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>받으시는 분</th>
+                        <td colspan="3">
+                            <label member_preset="member_preset">
+                                <input type="radio" onclick="changeTo('1', 'memb');" name="to_1_preset"> 회원정보와 동일
+                            </label>
+                            <label>
+                                <input type="radio" onclick="changeTo('1', 'new');" checked="checked" name="to_1_preset"> 새로운 정보 입력
+                        </label>
+                        <button class="dlvr_addr_pop" onclick="showDlvrAddrListPop('to_1');">나의배송지 선택</button>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">배송방법</th>
+                    <td>
+                        <select name="to_1_dlvr_way" id="to_1_dlvr_way" onchange="">
+                            <option>선택</option>
+                        </select>
+                    </td>
+                    <th scope="row">배송비 지불</th>
+                    <td>
+                        <label><input type="radio" checked="checked" name="to_1_dlvr_sum_way" value="선불"> 선불</label>
+                        <label><input type="radio"  name="to_1_dlvr_sum_way" value="착불"> 착불</label>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">성명/상호</th>
+                    <td colspan="3" class="name"><input name="to_1_name" id="to_1_name" type="text"></td>
+                </tr>
+                <tr>
+                    <th scope="row">연락처</th>
+                    <td>
+                        <select id="to_1_tel_num1" name="to_1_tel_num1">
+                            [TPH_Vtel_num]
+                        </select>
+                        <input id="to_1_tel_num2" name="to_1_tel_num2" maxlength="4" onkeyup="onlyNumber(event, this.value);" type="text">
+                        <input id="to_1_tel_num3" name="to_1_tel_num3" maxlength="4" onkeyup="onlyNumber(event, this.value);" type="text">
+                    </td>
+                    <th scope="row">휴대전화</th>
+                    <td>
+                        <select id="to_1_cell_num1" name="to_1_cell_num1">
+                            [TPH_Vcell_num]
+                        </select>
+                        <input id="to_1_cell_num2" name="to_1_cell_num2" maxlength="4" onkeyup="onlyNumber(event, this.value);" type="text">
+                        <input id="to_1_cell_num3" name="to_1_cell_num3" maxlength="4" onkeyup="onlyNumber(event, this.value);" type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">주소</th>
+                    <td colspan="3">
+                        <button class="addressRegist" onclick="showDlvrAddrRegiPop('to_1');">나의배송지로 등록</button>
+                        <div class="rowWrap">
+                            <input type="text" id="to_1_zipcode" name="to_1_zipcode" readonly>
+                            <button type="button" class="postcode_btn" onclick="getPostcode('to_1');">우편번호 찾기</button>
+                        </div>
+                        <div class="rowWrap">
+                            <input type="text" id="to_1_addr" name="to_1_addr" class="address" readonly>
+                            <input type="text" id="to_1_addr_detail" name="to_1_addr_detail" class="address">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">주문선택</th>
+                    <td colspan="3">
+                        <ul class="_orderGroup">
+                            <li class="_NONE"><label><input type="radio" checked="checked" class="orderGroup" name="orderGroupNONE" pos="to_1"> 개별 : <span class="_text"></span></label></li>
+                            <li class="_A"><label><input type="radio" class="orderGroup" name="orderGroupA" pos="to_1"> 묶음A : <span class="_text"></span></label></li>
+                            <li class="_B"><label><input type="radio" class="orderGroup" name="orderGroupB" pos="to_1"> 묶음B : <span class="_text"></span></label></li>
+                            <li class="_C"><label><input type="radio" class="orderGroup" name="orderGroupC" pos="to_1"> 묶음C : <span class="_text"></span></label></li>
+                            <li class="_D"><label><input type="radio" class="orderGroup" name="orderGroupD" pos="to_1"> 묶음D : <span class="_text"></span></label></li>
+                            <li class="_E"><label><input type="radio" class="orderGroup" name="orderGroupE" pos="to_1"> 묶음E : <span class="_text"></span></label></li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section class="form memo">
+        <h3><img src="[TPH_Vdesign_dir]/images/order/sheet_title_memo.png" alt="주문메모"></h3>
+        <p class="note">고객님께서 주문에 대해 기억해야할 사항이나 관리를 위해 기록해야할 사항 등 여러가지 내용을 자유롭게 메모하세요.</p>
+        <div class="textareaWrap">
+            <textarea id="memo" name="memo" class="memo"></textarea>
+        </div>
+    </section>
+    <section class="form payment">
+        <h3><img src="[TPH_Vdesign_dir]/images/order/sheet_title_payment.png" alt="결제정보"></h3>
+        <dl>
+            <dt>주문금액</dt>
+            <dd><span id="sell_price">[TPH_Vsell_price]</span> 원</dd>
+            <dt>배송비</dt>
+            <dd>
+                <span id="dlvr_price">2,500</span>원
+                <input type="hidden" name="dlvr_price" value="2500" />
+            </dd>
+        </dl>
+        <dl>
+            <dt>회원 등급 할인</dt>
+            <dd><span id="grade_sale_price">[TPH_Vgrade_sale_price]</span> 원</dd>
+            <dt>이벤트</dt>
+            <dd><span id="event_sale_price">[TPH_Vevent_sale_price]</span> 원</dd>
+            <dt>마일리지</dt>
+            <dd>
+                <button onclick="showPointPop();" title="마일리지 사용">
+                    <img src="[TPH_Vdesign_dir]/images/order/btn_usepoint.png" alt="사용">
+                </button>
+                <span id="point">0</span>
+                <span class="unit">P</span>
+                <input type="hidden" name="point" value="0" />
+            </dd>
+            <dt>쿠폰</dt>
+            <dd>
+                <button onclick="showCouponPop();" title="쿠폰 적용">
+                    <img src="[TPH_Vdesign_dir]/images/order/btn_usecoupon.png" alt="적용">
+                </button>
+                <span>0</span> 원
+                <input type="hidden" name="coupon_price" value="0" />
+                <input type="hidden" name="coupon_seqno" value="" />
+            </dd>
+        </dl>
+        <dl>
+            <dt>주문금액합계</dt>
+            <dd ><span id="sum_price">[TPH_Vsum_order_price]</span> 원</dd>
+            <dt>할인금액합계</dt>
+            <dd><strong class="discount">-<span id="sum_discount">[TPH_Vsum_discount]</span></strong> 원</dd>
+            <dt>최종 결제금액</dt>
+            <dd><strong id="pay_price">[TPH_Vpay_price]</strong> 원</dd>
+            <dt>결제 방법</dt>
+            <dd class="_paymentType">
+                <label><input type="radio" name="card_pay_yn" value="N" checked="checked" class="_prepaid"> 선입금</label>
+                [TPH_Vcard_pay_yn]
+            </dd>
+        </dl>
+    </section>
+    <article class="priceSummary">
+        <dl class="prepaid">
+            <dt>선입금</dt>
+            <dd>
+                <strong id="prepay_price">[TPH_Vprepay_price]</strong> 원
+                <input type="hidden" name="prepay_price" value="[TPH_Vprepay_price]" />
+            </dd>
+        </dl>
+        <dl class="total">
+            <dt>최종 결제금액</dt>
+            <dd><strong id="pay_price_summary">[TPH_Vpay_price]</strong> 원</dd>
+        </dl>
+        <dl class="paymentAmount">
+            <dt>주문 부족 금액</dt>
+            <dd>
+                <strong id="order_lack_price">[TPH_Vorder_lack_price]</strong> 원
+                <input type="hidden" name="order_lack_price" value="[TPH_Vorder_lack_price]" />
+            </dd>
+        </dl>
+    </article>
+    <div class="function center">
+        <strong><button onclick="showConfirmPop();">결제하기</button></strong>
+        <button class="gray" onclick="/order/cart.html">장바구니로 돌아가기</button>
+    </div>
+</section>
+<footer>
+    [TPH_I/common/footer.html]
+</footer>
+
+<!-- 주문확인 팝업 -->
+<div class="modalMask l_confirm">
+    <div class="layerPopupWrap">
+        <section class="layerPopup">
+            <header>
+                <h2>주문서 확인</h2>
+                <button class="close" title="닫기"><img src="[TPH_Vdesign_dir]/images/common/btn_circle_x_white.png" alt="X"></button>
+            </header>
+            <article>
+                <article class="notice">
+                    <div class="wrap">
+                        <ul>
+                            <li>주문하신 내용이 올바른지 다시 한 번 확인해 주세요.</li>
+                            <li>주문서의 내용이 맞다면 [확인] 버튼을 클릭하여 주문을 완료 하세요. 주문서에 수정할 부분이 있다면 [뒤로] 버튼을 클릭해 주세요.</li>
+                        </ul>
+                    </div>
+                </article>
+                <div class="scrollWrap">
+                    <h3>주문 상품</h3>
+                    <table class="list order _details" id="confirm_table">
+                        <colgroup>
+                            <col width="40">
+                            <col width="180">
+                            <col>
+                            <col width="90">
+                            <col width="100">
+                            <col width="60">
+                            <col width="60">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>번호</th>
+                                <th>인쇄물제목</th>
+                                <th>상품정보</th>
+                                <th>수량(건)</th>
+                                <th>결제예정금액</th>
+                                <th>묶음여부</th>
+                                <th>상세</th>
+                            </tr>
+                        </thead>
+                    </table>
+
+                    <h3 class="from">주문자 정보</h3>
+                    <table class="list order">
+                        <colgroup>
+                            <col width="80">
+                            <col width="100">
+                            <col width="120">
+                            <col width="120">
+                            <col width="140">
+                            <col>
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>주문자명</th>
+                                <th>회사명</th>
+                                <th>전화번호</th>
+                                <th>휴대전화번호</th>
+                                <th>메일</th>
+                                <th>주소</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>[TPH_Vmember_name]</td>
+                                <td>[TPH_Vmember_group]</td>
+                                <td>[TPH_Vmember_tel_num]</td>
+                                <td>[TPH_Vmember_cell_num]</td>
+                                <td>[TPH_Vmember_mail]</td>
+                                <td>[[TPH_Vmember_zipcode]] [TPH_Vmember_addr]</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3 class="from">보내는 사람</h3>
+                    <table class="list order">
+                        <colgroup>
+                            <col width="180">
+                            <col width="120">
+                            <col width="120">
+                            <col>
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>성명/상호</th>
+                                <th>전화번호</th>
+                                <th>휴대전화번호</th>
+                                <th>주소</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="confirm_from_name"></td>
+                                <td id="confirm_from_tel_num"></td>
+                                <td id="confirm_from_cell_num"></td>
+                                <td>
+                                    [<span id="confirm_from_zipcode"></span>] <span id="confirm_from_addr"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div id="confirm_to" style="margin-top:30px; margin-bottom:30px;">
+                    </div>
+
+                    <h3 class="payment">결제 정보 및 방법</h3>
+                    <table class="list order">
+                        <colgroup>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>주문금액 합계</th>
+                                <th>할인금액 합계</th>
+                                <th>총 결제금액</th>
+                                <th>결제 수단</th>
+                                <th>선입금 잔액</th>
+                                <th>결제 부족 금액</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="confirm_sum_price"></td>
+                                <td id="confirm_sum_discount"></td>
+                                <td id="confirm_pay_price"></td>
+                                <td id="confirm_pay_way"></td>
+                                <td id="confirm_prepay_price"></td>
+                                <td id="confirm_order_lack_price"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="function center">
+                    <strong><button onclick="goComplete();">확인</button></strong>
+                    <button class="close">뒤로</button>
+                </div>
+            </article>
+        </section>
+    </div>
+</div><!-- 주문확인 팝업 -->
+
+</body>
+</html>

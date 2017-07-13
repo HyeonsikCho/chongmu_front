@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    [TPH_I/common/head.html]
+    <script src="[TPH_Vdesign_dir]/js/lib/jquery.form.min.js"></script>
+    <script src="[TPH_Vdesign_dir]/js/product/aft_lib.js"></script>
+</head>
+<body>
+<header class="top">
+    [TPH_I/common/header.html]
+</header>
+<section class="contents nc_normal">
+    <header class="title">
+        <ol class="location">
+            [TPH_I/common/home_btn.html]
+            <li><span>상품 주문</span></li>
+            <li><span>명함</span></li>
+        </ol>
+        [TPH_I/product/common/cate_select.html]
+        <p><br /></p>
+        <h2><img src="[TPH_Vdesign_dir]/images/product/title/nc_card.png" alt="카드명함"></h2>
+        <span class="description nc">카드명함 설명</span>
+        <span class="recommend"><strong>125</strong>분의 고객님께서 이 상품을 추천하셨습니다.</span>
+    </header>
+    <div class="rightWrap productOptions">
+        [TPH_I/product/nc/nc_info.html]
+        [TPH_I/product/common/purchase.html]
+    </div>
+    <div class="leftWrap">
+        [TPH_I/product/common/picture.html]
+        [TPH_I/product/common/banner.html]
+
+        <!--ul class="util">
+            <li class="templete"><button type="button" onclick="layerPopup('l_information', 'popup/l_information.html', '1'); return false;">템플릿 다운로드</button></li>
+            <li class="date"><button type="button" onclick="layerPopup('l_delivery', 'popup/l_delivery.html')">출고일 확인</button></li>
+            <li class="guide"><button type="button" onclick="layerPopup('l_information', 'popup/l_information.html', '3'); return false;">하이프린트 가이드</button></li>
+            <li class="detail"><button type="button" onclick="layerPopup('l_information', 'popup/l_information.html'); return false;">상세보기</button></li>
+        </ul-->
+    </div>
+    <div class="quickEstimate" style="display:none;">
+        <h3><div class="wrap"><img src="[TPH_Vdesign_dir]/images/product/quickestimate_h2.png" alt="빠른 견적서"></div></h3>
+        [TPH_Vquick_esti]
+        <div class="function">
+            <strong><button type="button">즉시주문</button></strong>
+            <button onclick="showEstiPop();" type="button" class="sub">견적서 출력</button>
+            <button type="button" class="sub">견적서 출력</button>
+        </div>
+
+    </div>
+
+</section>
+<footer>
+    [TPH_I/common/footer.html]
+</footer>
+[TPH_I/product/common/estimate_pop.html]
+</body>
+</html>

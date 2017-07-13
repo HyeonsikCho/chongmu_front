@@ -1,0 +1,80 @@
+<?
+/********************************************************************
+***** 프로 젝트 : 총무팀
+***** 개  발  자 : 조현식
+***** 작  성  일 : 2016.05.25
+********************************************************************/
+
+/********************************************************************
+***** 라이브러리 인클루드
+********************************************************************/
+
+include_once($_SERVER["DOCUMENT_ROOT"] . "/common/sess_common.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/Template.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/ConnectionPool.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/FrontCommonUtil.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/job/common/CommonDAO.php");
+
+
+/********************************************************************
+***** 클래스 선언
+********************************************************************/
+
+$connectionPool = new ConnectionPool();                 // DB 컨넥션 클래스 선언
+$conn = $connectionPool->getPooledConnection();
+$template = new Template();                                     // 스킨 클래스 선언
+$dao = new CommonDAO();
+$frontUtil = new FrontCommonUtil();
+
+
+/********************************************************************
+***** 로그인 정보 가져오기
+********************************************************************/
+include_once($_SERVER["DOCUMENT_ROOT"] . "/common/login_check.php");
+
+
+/********************************************************************
+***** html 스킨경로 선언
+********************************************************************/
+
+$design_dir = "/design_template";
+
+
+
+/********************************************************************
+***** 기본사용 자바스크립트, css 파일 불러오는 용
+********************************************************************/
+
+$template->reg("dir", "order");
+$template->reg("page", "requestdeposit");
+$template->reg("cart_list" , $cart_html);
+$template->reg("order_amnt" , number_format($order_amnt));
+
+
+
+/********************************************************************
+***** 스킨 경로
+********************************************************************/
+
+$template->reg("design_dir", "/design_template");
+$template->reg("order_no", $fb->fb['order_no']); //주문번호
+$template->reg("tran_date", $fb->fb['tran_date']); //입금시작
+$template->reg("expire_date", $fb->fb['expire_date']); //입금마감
+$template->reg("bank_nm", $fb->fb['bank_nm']); //은행명
+$template->reg("account_no", $fb->fb['account_no']); //가상계좌번호
+$template->reg("t_amount", $fb->fb['t_amount']); // 금액
+
+
+/********************************************************************
+***** html 출력
+********************************************************************/
+
+$template->htmlPrint($_SERVER["PHP_SELF"]);
+
+
+/********************************************************************
+***** DB 컨넥션 종료
+********************************************************************/
+
+$conn->Close();
+?>

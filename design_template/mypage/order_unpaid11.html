@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    [TPH_I/common/head.html]
+</head>
+<body>
+<header class="top">
+    [TPH_I/common/header.html]
+</header>
+<section class="contents lnb orderList">
+    <header class="title">
+        <h2><img src="[TPH_Vdesign_dir]/images/mypage/title.png" alt="마이페이지"></h2>
+        <ol class="location">
+            [TPH_I/common/home_btn.html]
+            <li><span>마이페이지</span></li>
+            <li><span>주문 정보</span></li>
+            <li><span>미결제 주문</span></li>
+        </ol>
+    </header>
+    <nav class="lnb">
+    </nav>
+    <h3 class="pageTitle">미결제 주문</h3>
+    <section class="searchCondition">
+        <div class="rowWrap">
+            <dl class="date">
+                <dt>주문일</dt>
+                <dd>
+                    <input type="text" class="_date" value="2015-06-24">
+                    ~
+                    <input type="text" class="_date" value="2015-06-30">
+                    <ul class="preset">
+                        <li><button>오늘</button></li>
+                        <li><button>어제</button></li>
+                        <li><button>일주일</button></li>
+                        <li><button>한달</button></li>
+                    </ul>
+                </dd>
+            </dl>
+            <dl class="status last">
+                <dt>진행상태</dt>
+                <dd>
+                    <select disabled>
+                        <option>입금대기</option>
+                    </select>
+                </dd>
+            </dl>
+        </div>
+        <div class="rowWrap">
+            <dl class="delivery">
+                <dt>배송종류</dt>
+                <dd>
+                    <select>
+                        <option>전체</option>
+                        <option>택배</option>
+                        <option>직배송</option>
+                    </select>
+                </dd>
+            </dl>
+            <dl class="title last">
+                <dt>인쇄물제목</dt>
+                <dd><input type="text"></dd>
+            </dl>
+        </div>
+        <button class="search">검색</button>
+    </section>
+    <table class="list ordered _details searchResult">
+        <caption>
+            <div class="resultNum">
+                <strong>2015-06-24</strong>부터 <strong>2015-06-30</strong>까지 <em>34</em>건의 검색결과가 있습니다.
+            </div>
+            <select class="listNum">
+                <option>10개씩 보기</option>
+                <option>20개씩 보기</option>
+                <option>50개씩 보기</option>
+            </select>
+        </caption>
+        <colgroup>
+            <col width="40">
+            <col width="70">
+            <col width="80">
+            <col width="120">
+            <col>
+            <col width="80">
+            <col width="80">
+            <col width="50">
+            <col width="55">
+            <col width="40">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th class="_sorting">주문일</th>
+                <th>주문번호</th>
+                <th class="_sorting">인쇄물제목</th>
+                <th class="_sorting">상품정보</th>
+                <th class="_sorting">수량(건)</th>
+                <th class="_sorting">결제금액</th>
+                <th>진행상태</th>
+                <th>주문취소</th>
+                <th>관리</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>10</td>
+                <td>2015-01-30</td>
+                <td>15938171990</td>
+                <td>한솥도시락 컬러 전단</td>
+                <td class="subject">
+                    <ul class="information">
+                        <li>코팅명함</li>
+                        <li>아트지백색 100g</li>
+                        <li>A4</li>
+                        <li>단면칼라 4도</li>
+                    </ul>
+                </td>
+                <td>500(1건)</td>
+                <td>25,000 원</td>
+                <td>조판</td>
+                <td><button class="tableFunction" onclick="layerPopup('l_orderCancel', 'popup/l_ordercancel.html')"><img src="../../images/mypage/btn_text_ordercancel.png" alt="주문취소"></button></td>
+                <td>
+                    <button class="viewOrderDetails _showOrderDetails _on" title="상세보기"><img src="../../images/common/btn_table_circle_bottom.png" alt="▼"></button>
+                    <button class="viewOrderDetails _hideOrderDetails" title="상세접기"><img src="../../images/common/btn_table_circle_top_green.png" alt="▲"></button>
+                </td>
+            </tr>
+            <tr class="_orderDetails">
+                <td colspan="10">
+                    <div class="wrap">
+                        <figure><img src="../../images/sample/order_cart_product.png" alt="상품명"></figure>
+                        <dl>
+                            <dt>인쇄물 제목</dt>
+                            <dd>한솥도시락 컬러 전단</dd>
+                        </dl>
+                        <dl>
+                            <dt>상품내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>합판전단(주문형)</li>
+                                    <li>아트지 백색 100g</li>
+                                    <li>A4</li>
+                                    <li>단면칼라 4도</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>후공정</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>코팅</li>
+                                    <li>네귀돌이</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>수량/건</dt>
+                            <dd>1,000 x 1 건</dd>
+                        </dl>
+                        <dl>
+                            <dt>할인내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>회원등급할인 &#8361; 5,000</li>
+                                    <li>이벤트할인 &#8361; 0</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>예상무게</dt>
+                            <dd>0.2Kg</dd>
+                            <dt>배송</dt>
+                            <dd>택배</dd>
+                        </dl>
+                        <dl>
+                            <dt>관리</dt>
+                            <dd>
+                                <button onclick="layerPopup('l_orderCancel', 'popup/l_ordercancel.html')"><img src="../../images/mypage/btn_text_ordercancel.png" alt="주문취소"></button>
+                                <button onclick="layerPopup('l_draft','popup/l_draft.html')"><img src="../../images/mypage/btn_text_draft.png" alt="시안보기"></button>
+                                <button><img src="../../images/mypage/btn_text_deliverytracking.png" alt="배송조회"></button>
+                                <button onclick="layerPopup('l_reorder', 'popup/l_reorder.html')"><img src="../../images/mypage/btn_text_reorder.png" alt="재주문"></button>
+                                <button><img src="../../images/mypage/btn_text_claim.png" alt="클레임요청"></button>
+                                <button onclick="layerPopup('l_recommand', 'popup/l_recommand.html')"><img src="../../images/mypage/btn_text_recommand.png" alt="추천"></button>
+                                <button onclick="layerPopup('l_memo', 'popup/l_memo.html')"><img src="../../images/mypage/btn_text_memo.png" alt="메모"></button>
+                            </dd>
+                        </dl>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>9</td>
+                <td>2015-01-30</td>
+                <td>15938171990</td>
+                <td>한솥도시락 컬러 전단</td>
+                <td class="subject">
+                    <ul class="information">
+                        <li>코팅명함</li>
+                        <li>아트지백색 100g</li>
+                        <li>A4</li>
+                        <li>단면칼라 4도</li>
+                    </ul>
+                </td>
+                <td>500(1건)</td>
+                <td>25,000 원</td>
+                <td>조판</td>
+                <td><button class="tableFunction" onclick="layerPopup('l_orderCancel', 'popup/l_ordercancel.html')"><img src="../../images/mypage/btn_text_ordercancel.png" alt="주문취소"></button></td>
+                <td>
+                    <button class="viewOrderDetails _showOrderDetails _on" title="상세보기"><img src="../../images/common/btn_table_circle_bottom.png" alt="▼"></button>
+                    <button class="viewOrderDetails _hideOrderDetails" title="상세접기"><img src="../../images/common/btn_table_circle_top_green.png" alt="▲"></button>
+                </td>
+            </tr>
+            <tr class="_orderDetails">
+                <td colspan="10">
+                    <div class="wrap">
+                        <figure><img src="../../images/sample/order_cart_product.png" alt="상품명"></figure>
+                        <dl>
+                            <dt>인쇄물 제목</dt>
+                            <dd>한솥도시락 컬러 전단</dd>
+                        </dl>
+                        <dl>
+                            <dt>상품내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>합판전단(주문형)</li>
+                                    <li>아트지 백색 100g</li>
+                                    <li>A4</li>
+                                    <li>단면칼라 4도</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>후공정</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>코팅</li>
+                                    <li>네귀돌이</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>수량/건</dt>
+                            <dd>1,000 x 1 건</dd>
+                        </dl>
+                        <dl>
+                            <dt>할인내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>회원등급할인 &#8361; 5,000</li>
+                                    <li>이벤트할인 &#8361; 0</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>예상무게</dt>
+                            <dd>0.2Kg</dd>
+                            <dt>배송</dt>
+                            <dd>택배</dd>
+                        </dl>
+                        <dl>
+                            <dt>관리</dt>
+                            <dd>
+                                <button onclick="layerPopup('l_orderCancel', 'popup/l_ordercancel.html')"><img src="../../images/mypage/btn_text_ordercancel.png" alt="주문취소"></button>
+                                <button onclick="layerPopup('l_draft','popup/l_draft.html')"><img src="../../images/mypage/btn_text_draft.png" alt="시안보기"></button>
+                                <button><img src="../../images/mypage/btn_text_deliverytracking.png" alt="배송조회"></button>
+                                <button onclick="layerPopup('l_reorder', 'popup/l_reorder.html')"><img src="../../images/mypage/btn_text_reorder.png" alt="재주문"></button>
+                                <button><img src="../../images/mypage/btn_text_claim.png" alt="클레임요청"></button>
+                                <button onclick="layerPopup('l_recommand', 'popup/l_recommand.html')"><img src="../../images/mypage/btn_text_recommand.png" alt="추천"></button>
+                                <button onclick="layerPopup('l_memo', 'popup/l_memo.html')"><img src="../../images/mypage/btn_text_memo.png" alt="메모"></button>
+                            </dd>
+                        </dl>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>8</td>
+                <td>2015-01-30</td>
+                <td>15938171990</td>
+                <td>한솥도시락 컬러 전단</td>
+                <td class="subject">
+                    <ul class="information">
+                        <li>코팅명함</li>
+                        <li>아트지백색 100g</li>
+                        <li>A4</li>
+                        <li>단면칼라 4도</li>
+                    </ul>
+                </td>
+                <td>500(1건)</td>
+                <td>25,000 원</td>
+                <td>조판</td>
+                <td><button class="tableFunction" onclick="layerPopup('l_orderCancel', 'popup/l_ordercancel.html')"><img src="../../images/mypage/btn_text_ordercancel.png" alt="주문취소"></button></td>
+                <td>
+                    <button class="viewOrderDetails _showOrderDetails _on" title="상세보기"><img src="../../images/common/btn_table_circle_bottom.png" alt="▼"></button>
+                    <button class="viewOrderDetails _hideOrderDetails" title="상세접기"><img src="../../images/common/btn_table_circle_top_green.png" alt="▲"></button>
+                </td>
+            </tr>
+            <tr class="_orderDetails">
+                <td colspan="10">
+                    <div class="wrap">
+                        <figure><img src="../../images/sample/order_cart_product.png" alt="상품명"></figure>
+                        <dl>
+                            <dt>인쇄물 제목</dt>
+                            <dd>한솥도시락 컬러 전단</dd>
+                        </dl>
+                        <dl>
+                            <dt>상품내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>합판전단(주문형)</li>
+                                    <li>아트지 백색 100g</li>
+                                    <li>A4</li>
+                                    <li>단면칼라 4도</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>후공정</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>코팅</li>
+                                    <li>네귀돌이</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>수량/건</dt>
+                            <dd>1,000 x 1 건</dd>
+                        </dl>
+                        <dl>
+                            <dt>할인내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>회원등급할인 &#8361; 5,000</li>
+                                    <li>이벤트할인 &#8361; 0</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>예상무게</dt>
+                            <dd>0.2Kg</dd>
+                            <dt>배송</dt>
+                            <dd>택배</dd>
+                        </dl>
+                        <dl>
+                            <dt>관리</dt>
+                            <dd>
+                                <button onclick="layerPopup('l_orderCancel', 'popup/l_ordercancel.html')"><img src="../../images/mypage/btn_text_ordercancel.png" alt="주문취소"></button>
+                                <button onclick="layerPopup('l_draft','popup/l_draft.html')"><img src="../../images/mypage/btn_text_draft.png" alt="시안보기"></button>
+                                <button><img src="../../images/mypage/btn_text_deliverytracking.png" alt="배송조회"></button>
+                                <button onclick="layerPopup('l_reorder', 'popup/l_reorder.html')"><img src="../../images/mypage/btn_text_reorder.png" alt="재주문"></button>
+                                <button><img src="../../images/mypage/btn_text_claim.png" alt="클레임요청"></button>
+                                <button onclick="layerPopup('l_recommand', 'popup/l_recommand.html')"><img src="../../images/mypage/btn_text_recommand.png" alt="추천"></button>
+                                <button onclick="layerPopup('l_memo', 'popup/l_memo.html')"><img src="../../images/mypage/btn_text_memo.png" alt="메모"></button>
+                            </dd>
+                        </dl>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>7</td>
+                <td>2015-01-30</td>
+                <td>15938171990</td>
+                <td>한솥도시락 컬러 전단</td>
+                <td class="subject">
+                    <ul class="information">
+                        <li>코팅명함</li>
+                        <li>아트지백색 100g</li>
+                        <li>A4</li>
+                        <li>단면칼라 4도</li>
+                    </ul>
+                </td>
+                <td>500(1건)</td>
+                <td>25,000 원</td>
+                <td>조판</td>
+                <td><button class="tableFunction" onclick="layerPopup('l_orderCancel', 'popup/l_ordercancel.html')"><img src="../../images/mypage/btn_text_ordercancel.png" alt="주문취소"></button></td>
+                <td>
+                    <button class="viewOrderDetails _showOrderDetails _on" title="상세보기"><img src="../../images/common/btn_table_circle_bottom.png" alt="▼"></button>
+                    <button class="viewOrderDetails _hideOrderDetails" title="상세접기"><img src="../../images/common/btn_table_circle_top_green.png" alt="▲"></button>
+                </td>
+            </tr>
+            <tr class="_orderDetails">
+                <td colspan="10">
+                    <div class="wrap">
+                        <figure><img src="../../images/sample/order_cart_product.png" alt="상품명"></figure>
+                        <dl>
+                            <dt>인쇄물 제목</dt>
+                            <dd>한솥도시락 컬러 전단</dd>
+                        </dl>
+                        <dl>
+                            <dt>상품내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>합판전단(주문형)</li>
+                                    <li>아트지 백색 100g</li>
+                                    <li>A4</li>
+                                    <li>단면칼라 4도</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>후공정</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>코팅</li>
+                                    <li>네귀돌이</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>수량/건</dt>
+                            <dd>1,000 x 1 건</dd>
+                        </dl>
+                        <dl>
+                            <dt>할인내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>회원등급할인 &#8361; 5,000</li>
+                                    <li>이벤트할인 &#8361; 0</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>예상무게</dt>
+                            <dd>0.2Kg</dd>
+                            <dt>배송</dt>
+                            <dd>택배</dd>
+                        </dl>
+                        <dl>
+                            <dt>관리</dt>
+                            <dd>
+                                <button onclick="layerPopup('l_orderCancel', 'popup/l_ordercancel.html')"><img src="../../images/mypage/btn_text_ordercancel.png" alt="주문취소"></button>
+                                <button onclick="layerPopup('l_draft','popup/l_draft.html')"><img src="../../images/mypage/btn_text_draft.png" alt="시안보기"></button>
+                                <button><img src="../../images/mypage/btn_text_deliverytracking.png" alt="배송조회"></button>
+                                <button onclick="layerPopup('l_reorder', 'popup/l_reorder.html')"><img src="../../images/mypage/btn_text_reorder.png" alt="재주문"></button>
+                                <button><img src="../../images/mypage/btn_text_claim.png" alt="클레임요청"></button>
+                                <button onclick="layerPopup('l_recommand', 'popup/l_recommand.html')"><img src="../../images/mypage/btn_text_recommand.png" alt="추천"></button>
+                                <button onclick="layerPopup('l_memo', 'popup/l_memo.html')"><img src="../../images/mypage/btn_text_memo.png" alt="메모"></button>
+                            </dd>
+                        </dl>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>6</td>
+                <td>2015-01-30</td>
+                <td>15938171990</td>
+                <td>한솥도시락 컬러 전단</td>
+                <td class="subject">
+                    <ul class="information">
+                        <li>코팅명함</li>
+                        <li>아트지백색 100g</li>
+                        <li>A4</li>
+                        <li>단면칼라 4도</li>
+                    </ul>
+                </td>
+                <td>500(1건)</td>
+                <td>25,000 원</td>
+                <td>조판</td>
+                <td><button class="tableFunction" onclick="layerPopup('l_orderCancel', 'popup/l_ordercancel.html')"><img src="../../images/mypage/btn_text_ordercancel.png" alt="주문취소"></button></td>
+                <td>
+                    <button class="viewOrderDetails _showOrderDetails _on" title="상세보기"><img src="../../images/common/btn_table_circle_bottom.png" alt="▼"></button>
+                    <button class="viewOrderDetails _hideOrderDetails" title="상세접기"><img src="../../images/common/btn_table_circle_top_green.png" alt="▲"></button>
+                </td>
+            </tr>
+            <tr class="_orderDetails">
+                <td colspan="10">
+                    <div class="wrap">
+                        <figure><img src="../../images/sample/order_cart_product.png" alt="상품명"></figure>
+                        <dl>
+                            <dt>인쇄물 제목</dt>
+                            <dd>한솥도시락 컬러 전단</dd>
+                        </dl>
+                        <dl>
+                            <dt>상품내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>합판전단(주문형)</li>
+                                    <li>아트지 백색 100g</li>
+                                    <li>A4</li>
+                                    <li>단면칼라 4도</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>후공정</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>코팅</li>
+                                    <li>네귀돌이</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>수량/건</dt>
+                            <dd>1,000 x 1 건</dd>
+                        </dl>
+                        <dl>
+                            <dt>할인내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>회원등급할인 &#8361; 5,000</li>
+                                    <li>이벤트할인 &#8361; 0</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>예상무게</dt>
+                            <dd>0.2Kg</dd>
+                            <dt>배송</dt>
+                            <dd>택배</dd>
+                        </dl>
+                        <dl>
+                            <dt>관리</dt>
+                            <dd>
+                                <button onclick="layerPopup('l_orderCancel', 'popup/l_ordercancel.html')"><img src="../../images/mypage/btn_text_ordercancel.png" alt="주문취소"></button>
+                                <button onclick="layerPopup('l_draft','popup/l_draft.html')"><img src="../../images/mypage/btn_text_draft.png" alt="시안보기"></button>
+                                <button><img src="../../images/mypage/btn_text_deliverytracking.png" alt="배송조회"></button>
+                                <button onclick="layerPopup('l_reorder', 'popup/l_reorder.html')"><img src="../../images/mypage/btn_text_reorder.png" alt="재주문"></button>
+                                <button><img src="../../images/mypage/btn_text_claim.png" alt="클레임요청"></button>
+                                <button onclick="layerPopup('l_recommand', 'popup/l_recommand.html')"><img src="../../images/mypage/btn_text_recommand.png" alt="추천"></button>
+                                <button onclick="layerPopup('l_memo', 'popup/l_memo.html')"><img src="../../images/mypage/btn_text_memo.png" alt="메모"></button>
+                            </dd>
+                        </dl>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>5</td>
+                <td>2015-01-30</td>
+                <td>15938171990</td>
+                <td>한솥도시락 컬러 전단</td>
+                <td class="subject">
+                    <ul class="information">
+                        <li>코팅명함</li>
+                        <li>아트지백색 100g</li>
+                        <li>A4</li>
+                        <li>단면칼라 4도</li>
+                    </ul>
+                </td>
+                <td>500(1건)</td>
+                <td>25,000 원</td>
+                <td>조판</td>
+                <td><button class="tableFunction" onclick="layerPopup('l_orderCancel', 'popup/l_ordercancel.html')"><img src="../../images/mypage/btn_text_ordercancel.png" alt="주문취소"></button></td>
+                <td>
+                    <button class="viewOrderDetails _showOrderDetails _on" title="상세보기"><img src="../../images/common/btn_table_circle_bottom.png" alt="▼"></button>
+                    <button class="viewOrderDetails _hideOrderDetails" title="상세접기"><img src="../../images/common/btn_table_circle_top_green.png" alt="▲"></button>
+                </td>
+            </tr>
+            <tr class="_orderDetails">
+                <td colspan="10">
+                    <div class="wrap">
+                        <figure><img src="../../images/sample/order_cart_product.png" alt="상품명"></figure>
+                        <dl>
+                            <dt>인쇄물 제목</dt>
+                            <dd>한솥도시락 컬러 전단</dd>
+                        </dl>
+                        <dl>
+                            <dt>상품내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>합판전단(주문형)</li>
+                                    <li>아트지 백색 100g</li>
+                                    <li>A4</li>
+                                    <li>단면칼라 4도</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>후공정</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>코팅</li>
+                                    <li>네귀돌이</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>수량/건</dt>
+                            <dd>1,000 x 1 건</dd>
+                        </dl>
+                        <dl>
+                            <dt>할인내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>회원등급할인 &#8361; 5,000</li>
+                                    <li>이벤트할인 &#8361; 0</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>예상무게</dt>
+                            <dd>0.2Kg</dd>
+                            <dt>배송</dt>
+                            <dd>택배</dd>
+                        </dl>
+                        <dl>
+                            <dt>관리</dt>
+                            <dd>
+                                <button onclick="layerPopup('l_orderCancel', 'popup/l_ordercancel.html')"><img src="../../images/mypage/btn_text_ordercancel.png" alt="주문취소"></button>
+                                <button onclick="layerPopup('l_draft','popup/l_draft.html')"><img src="../../images/mypage/btn_text_draft.png" alt="시안보기"></button>
+                                <button><img src="../../images/mypage/btn_text_deliverytracking.png" alt="배송조회"></button>
+                                <button onclick="layerPopup('l_reorder', 'popup/l_reorder.html')"><img src="../../images/mypage/btn_text_reorder.png" alt="재주문"></button>
+                                <button><img src="../../images/mypage/btn_text_claim.png" alt="클레임요청"></button>
+                                <button onclick="layerPopup('l_recommand', 'popup/l_recommand.html')"><img src="../../images/mypage/btn_text_recommand.png" alt="추천"></button>
+                                <button onclick="layerPopup('l_memo', 'popup/l_memo.html')"><img src="../../images/mypage/btn_text_memo.png" alt="메모"></button>
+                            </dd>
+                        </dl>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>4</td>
+                <td>2015-01-30</td>
+                <td>15938171990</td>
+                <td>한솥도시락 컬러 전단</td>
+                <td class="subject">
+                    <ul class="information">
+                        <li>코팅명함</li>
+                        <li>아트지백색 100g</li>
+                        <li>A4</li>
+                        <li>단면칼라 4도</li>
+                    </ul>
+                </td>
+                <td>500(1건)</td>
+                <td>25,000 원</td>
+                <td>조판</td>
+                <td><button class="tableFunction" onclick="layerPopup('l_orderCancel', 'popup/l_ordercancel.html')"><img src="../../images/mypage/btn_text_ordercancel.png" alt="주문취소"></button></td>
+                <td>
+                    <button class="viewOrderDetails _showOrderDetails _on" title="상세보기"><img src="../../images/common/btn_table_circle_bottom.png" alt="▼"></button>
+                    <button class="viewOrderDetails _hideOrderDetails" title="상세접기"><img src="../../images/common/btn_table_circle_top_green.png" alt="▲"></button>
+                </td>
+            </tr>
+            <tr class="_orderDetails">
+                <td colspan="10">
+                    <div class="wrap">
+                        <figure><img src="../../images/sample/order_cart_product.png" alt="상품명"></figure>
+                        <dl>
+                            <dt>인쇄물 제목</dt>
+                            <dd>한솥도시락 컬러 전단</dd>
+                        </dl>
+                        <dl>
+                            <dt>상품내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>합판전단(주문형)</li>
+                                    <li>아트지 백색 100g</li>
+                                    <li>A4</li>
+                                    <li>단면칼라 4도</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>후공정</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>코팅</li>
+                                    <li>네귀돌이</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>수량/건</dt>
+                            <dd>1,000 x 1 건</dd>
+                        </dl>
+                        <dl>
+                            <dt>할인내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>회원등급할인 &#8361; 5,000</li>
+                                    <li>이벤트할인 &#8361; 0</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>예상무게</dt>
+                            <dd>0.2Kg</dd>
+                            <dt>배송</dt>
+                            <dd>택배</dd>
+                        </dl>
+                        <dl>
+                            <dt>관리</dt>
+                            <dd>
+                                <button onclick="layerPopup('l_orderCancel', 'popup/l_ordercancel.html')"><img src="../../images/mypage/btn_text_ordercancel.png" alt="주문취소"></button>
+                                <button onclick="layerPopup('l_draft','popup/l_draft.html')"><img src="../../images/mypage/btn_text_draft.png" alt="시안보기"></button>
+                                <button><img src="../../images/mypage/btn_text_deliverytracking.png" alt="배송조회"></button>
+                                <button onclick="layerPopup('l_reorder', 'popup/l_reorder.html')"><img src="../../images/mypage/btn_text_reorder.png" alt="재주문"></button>
+                                <button><img src="../../images/mypage/btn_text_claim.png" alt="클레임요청"></button>
+                                <button onclick="layerPopup('l_recommand', 'popup/l_recommand.html')"><img src="../../images/mypage/btn_text_recommand.png" alt="추천"></button>
+                                <button onclick="layerPopup('l_memo', 'popup/l_memo.html')"><img src="../../images/mypage/btn_text_memo.png" alt="메모"></button>
+                            </dd>
+                        </dl>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>3</td>
+                <td>2015-01-30</td>
+                <td>15938171990</td>
+                <td>한솥도시락 컬러 전단</td>
+                <td class="subject">
+                    <ul class="information">
+                        <li>코팅명함</li>
+                        <li>아트지백색 100g</li>
+                        <li>A4</li>
+                        <li>단면칼라 4도</li>
+                    </ul>
+                </td>
+                <td>500(1건)</td>
+                <td>25,000 원</td>
+                <td>조판</td>
+                <td><button class="tableFunction" onclick="layerPopup('l_orderCancel', 'popup/l_ordercancel.html')"><img src="../../images/mypage/btn_text_ordercancel.png" alt="주문취소"></button></td>
+                <td>
+                    <button class="viewOrderDetails _showOrderDetails _on" title="상세보기"><img src="../../images/common/btn_table_circle_bottom.png" alt="▼"></button>
+                    <button class="viewOrderDetails _hideOrderDetails" title="상세접기"><img src="../../images/common/btn_table_circle_top_green.png" alt="▲"></button>
+                </td>
+            </tr>
+            <tr class="_orderDetails">
+                <td colspan="10">
+                    <div class="wrap">
+                        <figure><img src="../../images/sample/order_cart_product.png" alt="상품명"></figure>
+                        <dl>
+                            <dt>인쇄물 제목</dt>
+                            <dd>한솥도시락 컬러 전단</dd>
+                        </dl>
+                        <dl>
+                            <dt>상품내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>합판전단(주문형)</li>
+                                    <li>아트지 백색 100g</li>
+                                    <li>A4</li>
+                                    <li>단면칼라 4도</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>후공정</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>코팅</li>
+                                    <li>네귀돌이</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>수량/건</dt>
+                            <dd>1,000 x 1 건</dd>
+                        </dl>
+                        <dl>
+                            <dt>할인내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>회원등급할인 &#8361; 5,000</li>
+                                    <li>이벤트할인 &#8361; 0</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>예상무게</dt>
+                            <dd>0.2Kg</dd>
+                            <dt>배송</dt>
+                            <dd>택배</dd>
+                        </dl>
+                        <dl>
+                            <dt>관리</dt>
+                            <dd>
+                                <button onclick="layerPopup('l_orderCancel', 'popup/l_ordercancel.html')"><img src="../../images/mypage/btn_text_ordercancel.png" alt="주문취소"></button>
+                                <button onclick="layerPopup('l_draft','popup/l_draft.html')"><img src="../../images/mypage/btn_text_draft.png" alt="시안보기"></button>
+                                <button><img src="../../images/mypage/btn_text_deliverytracking.png" alt="배송조회"></button>
+                                <button onclick="layerPopup('l_reorder', 'popup/l_reorder.html')"><img src="../../images/mypage/btn_text_reorder.png" alt="재주문"></button>
+                                <button><img src="../../images/mypage/btn_text_claim.png" alt="클레임요청"></button>
+                                <button onclick="layerPopup('l_recommand', 'popup/l_recommand.html')"><img src="../../images/mypage/btn_text_recommand.png" alt="추천"></button>
+                                <button onclick="layerPopup('l_memo', 'popup/l_memo.html')"><img src="../../images/mypage/btn_text_memo.png" alt="메모"></button>
+                            </dd>
+                        </dl>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>2</td>
+                <td>2015-01-30</td>
+                <td>15938171990</td>
+                <td>한솥도시락 컬러 전단</td>
+                <td class="subject">
+                    <ul class="information">
+                        <li>코팅명함</li>
+                        <li>아트지백색 100g</li>
+                        <li>A4</li>
+                        <li>단면칼라 4도</li>
+                    </ul>
+                </td>
+                <td>500(1건)</td>
+                <td>25,000 원</td>
+                <td>조판</td>
+                <td><button class="tableFunction" onclick="layerPopup('l_orderCancel', 'popup/l_ordercancel.html')"><img src="../../images/mypage/btn_text_ordercancel.png" alt="주문취소"></button></td>
+                <td>
+                    <button class="viewOrderDetails _showOrderDetails _on" title="상세보기"><img src="../../images/common/btn_table_circle_bottom.png" alt="▼"></button>
+                    <button class="viewOrderDetails _hideOrderDetails" title="상세접기"><img src="../../images/common/btn_table_circle_top_green.png" alt="▲"></button>
+                </td>
+            </tr>
+            <tr class="_orderDetails">
+                <td colspan="10">
+                    <div class="wrap">
+                        <figure><img src="../../images/sample/order_cart_product.png" alt="상품명"></figure>
+                        <dl>
+                            <dt>인쇄물 제목</dt>
+                            <dd>한솥도시락 컬러 전단</dd>
+                        </dl>
+                        <dl>
+                            <dt>상품내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>합판전단(주문형)</li>
+                                    <li>아트지 백색 100g</li>
+                                    <li>A4</li>
+                                    <li>단면칼라 4도</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>후공정</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>코팅</li>
+                                    <li>네귀돌이</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>수량/건</dt>
+                            <dd>1,000 x 1 건</dd>
+                        </dl>
+                        <dl>
+                            <dt>할인내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>회원등급할인 &#8361; 5,000</li>
+                                    <li>이벤트할인 &#8361; 0</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>예상무게</dt>
+                            <dd>0.2Kg</dd>
+                            <dt>배송</dt>
+                            <dd>택배</dd>
+                        </dl>
+                        <dl>
+                            <dt>관리</dt>
+                            <dd>
+                                <button onclick="layerPopup('l_orderCancel', 'popup/l_ordercancel.html')"><img src="../../images/mypage/btn_text_ordercancel.png" alt="주문취소"></button>
+                                <button onclick="layerPopup('l_draft','popup/l_draft.html')"><img src="../../images/mypage/btn_text_draft.png" alt="시안보기"></button>
+                                <button><img src="../../images/mypage/btn_text_deliverytracking.png" alt="배송조회"></button>
+                                <button onclick="layerPopup('l_reorder', 'popup/l_reorder.html')"><img src="../../images/mypage/btn_text_reorder.png" alt="재주문"></button>
+                                <button><img src="../../images/mypage/btn_text_claim.png" alt="클레임요청"></button>
+                                <button onclick="layerPopup('l_recommand', 'popup/l_recommand.html')"><img src="../../images/mypage/btn_text_recommand.png" alt="추천"></button>
+                                <button onclick="layerPopup('l_memo', 'popup/l_memo.html')"><img src="../../images/mypage/btn_text_memo.png" alt="메모"></button>
+                            </dd>
+                        </dl>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2015-01-30</td>
+                <td>15938171990</td>
+                <td>한솥도시락 컬러 전단</td>
+                <td class="subject">
+                    <ul class="information">
+                        <li>코팅명함</li>
+                        <li>아트지백색 100g</li>
+                        <li>A4</li>
+                        <li>단면칼라 4도</li>
+                    </ul>
+                </td>
+                <td>500(1건)</td>
+                <td>25,000 원</td>
+                <td>조판</td>
+                <td><button class="tableFunction" onclick="layerPopup('l_orderCancel', 'popup/l_ordercancel.html')"><img src="../../images/mypage/btn_text_ordercancel.png" alt="주문취소"></button></td>
+                <td>
+                    <button class="viewOrderDetails _showOrderDetails _on" title="상세보기"><img src="../../images/common/btn_table_circle_bottom.png" alt="▼"></button>
+                    <button class="viewOrderDetails _hideOrderDetails" title="상세접기"><img src="../../images/common/btn_table_circle_top_green.png" alt="▲"></button>
+                </td>
+            </tr>
+            <tr class="_orderDetails">
+                <td colspan="10">
+                    <div class="wrap">
+                        <figure><img src="../../images/sample/order_cart_product.png" alt="상품명"></figure>
+                        <dl>
+                            <dt>인쇄물 제목</dt>
+                            <dd>한솥도시락 컬러 전단</dd>
+                        </dl>
+                        <dl>
+                            <dt>상품내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>합판전단(주문형)</li>
+                                    <li>아트지 백색 100g</li>
+                                    <li>A4</li>
+                                    <li>단면칼라 4도</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>후공정</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>코팅</li>
+                                    <li>네귀돌이</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>수량/건</dt>
+                            <dd>1,000 x 1 건</dd>
+                        </dl>
+                        <dl>
+                            <dt>할인내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>회원등급할인 &#8361; 5,000</li>
+                                    <li>이벤트할인 &#8361; 0</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>예상무게</dt>
+                            <dd>0.2Kg</dd>
+                            <dt>배송</dt>
+                            <dd>택배</dd>
+                        </dl>
+                        <dl>
+                            <dt>관리</dt>
+                            <dd>
+                                <button onclick="layerPopup('l_orderCancel', 'popup/l_ordercancel.html')"><img src="../../images/mypage/btn_text_ordercancel.png" alt="주문취소"></button>
+                                <button onclick="layerPopup('l_draft','popup/l_draft.html')"><img src="../../images/mypage/btn_text_draft.png" alt="시안보기"></button>
+                                <button><img src="../../images/mypage/btn_text_deliverytracking.png" alt="배송조회"></button>
+                                <button onclick="layerPopup('l_reorder', 'popup/l_reorder.html')"><img src="../../images/mypage/btn_text_reorder.png" alt="재주문"></button>
+                                <button><img src="../../images/mypage/btn_text_claim.png" alt="클레임요청"></button>
+                                <button onclick="layerPopup('l_recommand', 'popup/l_recommand.html')"><img src="../../images/mypage/btn_text_recommand.png" alt="추천"></button>
+                                <button onclick="layerPopup('l_memo', 'popup/l_memo.html')"><img src="../../images/mypage/btn_text_memo.png" alt="메모"></button>
+                            </dd>
+                        </dl>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <ul class="paging">
+        <li class="first"><button title="첫 페이지로">1</button></li>
+        <li class="prev"><button title="이전 페이지로"><img src="../../images/common/btn_paging_prev.png" alt="<"></button></li>
+        <li><button class="on">1</button></li>
+        <li><button>2</button></li>
+        <li><button>3</button></li>
+        <li><button>4</button></li>
+        <li><button>5</button></li>
+        <li><button>6</button></li>
+        <li><button>7</button></li>
+        <li><button>8</button></li>
+        <li><button>9</button></li>
+        <li><button>10</button></li>
+        <li class="next"><button title="다음 페이지로"><img src="../../images/common/btn_paging_next.png" alt=">"></button></li>
+        <li class="last"><button title="마지막 페이지로">28</button></li>
+    </ul>
+</section>
+<footer>
+    [TPH_I/common/footer.html]
+</footer>
+</body>
+</html>

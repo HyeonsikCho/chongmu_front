@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    [TPH_I/common/head.html]
+</head>
+<body>
+<header class="top">
+    [TPH_I/common/header.html]
+</header>
+<section class="contents lnb memberInfo">
+    <header class="title">
+        <h2><img src="[TPH_Vdesign_dir]/images/mypage/title.png" alt="마이페이지"></h2>
+        <ol class="location">
+            [TPH_I/common/home_btn.html]
+            <li><span>마이페이지</span></li>
+            <li><span>회원 정보</span></li>
+            <li><span>회원 정보 변경</span></li>
+        </ol>
+    </header>
+    <nav class="lnb">
+    </nav>
+    <h3 class="pageTitle">회원 정보 변경</h3>
+    <h4 class="sectionTitle">아이디 정보</h4>
+    <table class="line input">
+        <colgroup>
+            <col width="120">
+            <col width="225">
+            <col width="120">
+            <col>
+        </colgroup>
+        <tbody>
+            <tr>
+                <th>회원구분</th>
+                <td>기업회원</td>
+                <th>회원등급</th>
+                <td>GOLD</td>
+            </tr>
+            <tr>
+                <th>아이디</th>
+                <td>brandnewsoda</td>
+                <th>가상계좌</th>
+                <td>우리은행 26493162418601</td>
+            </tr>
+            <tr>
+                <th>기존 비밀번호</th>
+                <td colspan="3"><input type="password"></td>
+            </tr>
+            <tr>
+                <th>신규 비밀번호</th>
+                <td><input type="password"></td>
+                <th>신규 비밀번호 확인</th>
+                <td>
+                    <input type="password">
+                    <button>비밀번호 변경</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h4 class="sectionTitle">가입 정보</h4>
+    <table class="line input">
+        <colgroup>
+            <col width="120">
+            <col width="225">
+            <col width="120">
+            <col>
+        </colgroup>
+        <tbody>
+            <tr>
+                <th>기업명</th>
+                <td colspan="3"><input type="text" value="브랜뉴소다 주식회사" readonly></td>
+            </tr>
+            <tr>
+                <th>회원명</th>
+                <td><input type="text" value="박기웅" reaonly></td>
+                <th>생년월일</th>
+                <td>
+                    <select>
+                        <option>1984</option>
+                    </select>
+                    <select>
+                        <option>09</option>
+                    </select>
+                    <select>
+                        <option>23</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>이메일</th>
+                <td colspan="3" class="email _replyToEmail">
+                    <input type="text" class="_id">
+                    <span class="symbol">@</span>
+                    <input type="text" class="_domain">
+                    <select>
+                        <option>naver.com</option>
+                        <option>nate.com</option>
+                        <option class="_custom">직접입력</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>전화번호</th>
+                <td colspan="3" class="telNum">
+                    <select>
+                        <option>02</option>
+                    </select>
+                    <input type="text">
+                    <input type="text">
+                </td>
+            </tr>
+            <tr>
+                <th>휴대전화</th>
+                <td colspan="3" class="telNum">
+                    <select>
+                        <option>010</option>
+                    </select>
+                    <input type="text">
+                    <input type="text">
+                </td>
+            </tr>
+            <tr>
+                <th>주소</th>
+                <td colspan="3">
+                    <div class="rowWrap postNum">
+                        <input type="text" readonly>
+                        <input type="text" readonly>
+                        <button>우편번호 찾기</button>
+                    </div>
+                    <div class="rowWrap address">
+                        <input type="text" class="address" readonly>
+                        <input type="text" class="address">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>이메일 수신여부</th>
+                <td colspan="3">
+                    <span class="description">뉴스레터, 이벤트 안내 등의 정보를 수신합니다.</span>
+                    <label><input type="radio" name="sedingEmail"> 예</label>
+                    <label><input type="radio" name="sedingEmail"> 아니오</label>
+                </td>
+            </tr>
+            <tr>
+                <th>SMS 수신여부</th>
+                <td colspan="3">
+                    <span class="description">뉴스레터, 이벤트 안내 등의 정보를 수신합니다.</span>
+                    <label><input type="radio" name="sendingSMS"> 예</label>
+                    <label><input type="radio" name="sendingSMS"> 아니오</label>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h4 class="sectionTitle">부가 정보 (선택 정보 입력)</h4>
+    <table class="line input">
+        <colgroup>
+            <col width="120">
+            <col width="225">
+            <col width="120">
+            <col>
+        </colgroup>
+        <tbody>
+            <tr>
+                <th>사업자등록번호</th>
+                <td colspan="3"><input type="text" value="261-81-22331" readonly></td>
+            </tr>
+            <tr>
+                <th>대표자</th>
+                <td colspan="3"><input type="text" value="유상욱" readonly></td>
+            </tr>
+            <tr>
+                <th>업태</th>
+                <td><input type="text" value="서비스"></td>
+                <th>종목</th>
+                <td><input type="text" value="디자인 외"></td>
+            </tr>
+            <tr>
+                <th>전화번호</th>
+                <td colspan="3" class="telNum">
+                    <select>
+                        <option>02</option>
+                    </select>
+                    <input type="text">
+                    <input type="text">
+                </td>
+            </tr>
+            <tr>
+                <th>팩스번호</th>
+                <td colspan="3" class="telNum">
+                    <select>
+                        <option>02</option>
+                    </select>
+                    <input type="text">
+                    <input type="text">
+                </td>
+            </tr>
+            <tr>
+                <th>대표 이메일</th>
+                <td colspan="3" class="email _replyToEmail">
+                    <input type="text" class="_id">
+                    <span class="symbol">@</span>
+                    <input type="text" class="_domain">
+                    <select>
+                        <option>naver.com</option>
+                        <option>nate.com</option>
+                        <option class="_custom">직접입력</option>
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="line input">
+        <colgroup>
+            <col width="120">
+            <col width="225">
+            <col width="120">
+            <col>
+        </colgroup>
+        <tbody>
+            <tr>
+                <th>회계담당</th>
+                <td colspan="3"><input type="text" value="조형섭"></td>
+            </tr>
+            <tr>
+                <th>전화번호</th>
+                <td colspan="3" class="telNum">
+                    <select>
+                        <option>02</option>
+                    </select>
+                    <input type="text">
+                    <input type="text">
+                </td>
+            </tr>   
+            <tr>
+                <th>휴대전화</th>
+                <td colspan="3" class="telNum">
+                    <select>
+                        <option>010</option>
+                    </select>
+                    <input type="text">
+                    <input type="text">
+                </td>
+            </tr>
+            <tr>
+                <th>팩스번호</th>
+                <td colspan="3" class="telNum">
+                    <select>
+                        <option>02</option>
+                    </select>
+                    <input type="text">
+                    <input type="text">
+                </td>
+            </tr>
+            <tr>
+                <th>이메일</th>
+                <td colspan="3" class="email _replyToEmail">
+                    <input type="text" class="_id">
+                    <span class="symbol">@</span>
+                    <input type="text" class="_domain">
+                    <select>
+                        <option>naver.com</option>
+                        <option>nate.com</option>
+                        <option class="_custom">직접입력</option>
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h4 class="sectionTitle">성향정보</h4>
+    <table class="line input taste">
+        <colgroup>
+            <col width="120">
+            <col>
+        </colgroup>
+        <tbody>
+            <tr>
+                <th>업태상세</th>
+                <td>
+                    <select>
+                        <option>선택</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>업종상세</th>
+                <td>
+                    <select>
+                        <option>선택</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>관심상품</th>
+                <td>
+                        <label><input type="checkbox"> 명함</label>
+                        <label><input type="checkbox"> 스티커</label>
+                        <label><input type="checkbox"> 전단</label>
+                        <label><input type="checkbox"> 광고홍보물</label>
+                        <label><input type="checkbox"> 봉투</label>
+                        <label><input type="checkbox"> 마스터(경인쇄)</label>
+                        <label><input type="checkbox"> 초소량인쇄</label>
+                        <label><input type="checkbox"> 디지털인쇄</label>
+                        <label><input type="checkbox"> 청첩장/초대장</label>
+                        <label><input type="checkbox"> 패키지</label>
+                        <label><input type="checkbox"> 실사출력</label>
+                        <label><input type="checkbox"> 판촉물</label>
+                </td>
+            </tr>
+            <tr>
+                <th>관심디자인</th>
+                <td>
+                        <label><input type="checkbox"> 항목1</label>
+                        <label><input type="checkbox"> 항목2</label>
+                        <label><input type="checkbox"> 항목3</label>
+                        <label><input type="checkbox"> 항목4</label>
+                        <label><input type="checkbox"> 항목5</label>
+                        <label><input type="checkbox"> 항목6</label>
+                </td>
+            </tr>
+            <tr>
+                <th>자사 디자이너</th>
+                <td>
+                    <label class="long"><input type="radio" name="inHouseDesigner"> 디자인 기획 전체를 외주합니다.</label>
+                    <label class="long"><input type="radio" name="inHouseDesigner"> 디자인은 자체적으로 처리합니다.</label>
+                </td>
+            </tr>
+            <tr>
+                <th>자사생산</th>
+                <td>
+                    <label class="long"><input type="radio" name="houseProduction"> 인쇄 외 모든 품목을 외주합니다.</label>
+                    <label class="long"><input type="radio" name="houseProduction"> 자체적으로 인쇄를 생산합니다.</label>
+                </td>
+            </tr>
+            <tr>
+                <th>사용 OS</th>
+                <td>
+                    <label><input type="radio" name="OS"> Windows</label>
+                    <label><input type="radio" name="OS"> Mac OS</label>
+                </td>
+            </tr>
+            <tr>
+                <th>주요 사용프로그램</th>
+                <td>
+                    <label><input type="radio" name="program"> 코렐드로우</label>
+                    <label><input type="radio" name="program"> 일러스트</label>
+                    <label><input type="radio" name="program"> 인디자인</label>
+                    <label><input type="radio" name="program"> 포토샵</label>
+                    <label><input type="radio" name="program"> PDF</label>
+                    <label><input type="radio" name="program"> 기타</label>
+                </td>
+            </tr>
+            <tr>
+                <th>거래상태</th>
+                <td>
+                    <label class="long"><input type="radio" name="businessPartner"> 현재 한 곳만 거래합니다.</label>
+                    <label class="long"><input type="radio" name="businessPartner"> 현재 여러 곳을 복수로 거래합니다.</label>
+                </td>
+            </tr>
+            <tr>
+                <th>관심 우선순위</th>
+                <td>
+                    <label>1순위 -
+                        <select>
+                            <option selected>가격</option>
+                            <option>품질</option>
+                            <option>납기</option>
+                            <option>서비스</option>
+                        </select>
+                    </label>
+                    <label>2순위 -
+                        <select>
+                            <option>가격</option>
+                            <option selected>품질</option>
+                            <option>납기</option>
+                            <option>서비스</option>
+                        </select>
+                    </label>
+                    <label>3순위 -
+                        <select>
+                            <option>가격</option>
+                            <option>품질</option>
+                            <option selected>납기</option>
+                            <option>서비스</option>
+                        </select>
+                    </label>
+                    <label>4순위 -
+                        <select>
+                            <option>가격</option>
+                            <option>품질</option>
+                            <option>납기</option>
+                            <option selected>서비스</option>
+                        </select>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <th>관심 이벤트</th>
+                <td>
+                    <label><input type="checkbox"> 오.특.이</label>
+                    <label><input type="checkbox"> 내가 제일 잘 나가</label>
+                    <label><input type="checkbox"> 테마쇼핑</label>
+                    <label><input type="checkbox"> 골라담자</label>
+                    <label><input type="checkbox"> 마일리지</label>
+                    <label><input type="checkbox"> 쿠폰</label>
+                </td>
+            </tr>
+            <tr>
+                <th>관심 요구사항</th>
+                <td>
+                    <label><input type="checkbox"> 방문요청</label>
+                    <label><input type="checkbox"> 담당자 지정</label>
+                    <label><input type="checkbox"> 다양한 제품 출시</label>
+                    <label><input type="checkbox"> 지속적인 이벤트</label>
+                    <label><input type="checkbox"> 원활한 A/S</label>
+                    <label><input type="checkbox"> 사이트 제작 조언</label>
+                    <label><input type="checkbox"> 프로그램 공동 구매</label>
+                    <label><input type="checkbox"> 커뮤니티 강화</label>
+                    <label><input type="checkbox"> 정기 모임</label>
+                    <label><input type="checkbox"> 유/무상 교육</label>
+                </td>
+            </tr>
+            <tr>
+                <th>기타 추가사항</th>
+                <td>
+                    <div class="textareaWrap">
+                        <textarea></textarea>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="function center">
+        <strong><button class="function">수정 완료</button></strong>
+        <button class="function">취소</button>
+    </div>
+</section>
+<footer>
+    [TPH_I/common/footer.html]
+</footer>
+</body>
+</html>

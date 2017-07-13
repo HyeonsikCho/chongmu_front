@@ -1,0 +1,23 @@
+<?php
+
+
+	$post_data = array(
+		"SITE_CD" => '00034',
+		"AUTH_CD" => 'GP331313',
+		"SVC_NO" => '0038',
+		"MYSEC_ID" => 'KD0DKGK',
+		"PH_NO" => '01000003578',
+		"USER_NM" => '디프린팅테스트'
+	);
+	//http://adm.plzm.info/NsmdG/PI/WPI100_S100/main/?SITE_CD=00034&AUTH_CD=GP331313&SVC_NO=0038&MYSEC_ID=KD0DKGK&PH_NO=01000003578&USER_NM=%EB%94%94%ED%94%84%EB%A7%81%ED%8C%85%ED%85%8C%EC%8A%A4%ED%8A%B8
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, 'http://adm.plzm.info/NsmdG/PI/WPI100_S100/main/');
+	curl_setopt($ch, CURLOPT_POST, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	$rs = curl_exec($ch);
+	curl_close($ch); 
+	echo $rs;
+
+
+?>

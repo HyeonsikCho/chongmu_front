@@ -1,0 +1,18 @@
+<?
+session_start();
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/entity/FormBean.php");
+$fb = new FormBean();
+
+$fb->addSession("sell_site", "1");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/proc/login/login.php");
+
+$ss = $fb->getSession();
+
+$is_login = false;
+// �α��� ���� üũ
+if (empty($fb->session("id")) === false) {
+    $is_login = true;
+}
+
+header("Location: /main/main.html");
+?>

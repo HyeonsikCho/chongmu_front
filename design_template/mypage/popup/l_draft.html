@@ -1,0 +1,39 @@
+<header>
+    <h2>시안보기</h2>
+    <button class="close" title="닫기"><img src="../../images/common/btn_circle_x_white.png" alt="X"></button>
+</header>
+<article>
+    <section class="draftImage"></section>
+    <ul class="draftCheck">
+        <li><label><input type="radio" name="draftCheck"> 시안을 확있했으며, 이대로 인쇄를 진행하겠습니다.</label></li>
+        <li><label><input type="radio" name="draftCheck" class="error"> 시안에 오류가 있습니다.</label>
+            <div class="textareaWrap">
+                <textarea disabled></textarea>
+            </div>
+        </li>
+    </ul>
+    <div class="function center">
+        <strong><button class="confirm">확인</button></strong>
+        <button class="close">취소</button>
+    </div>
+</article>
+<script>
+    $('.l_draft .draftCheck input[type=radio]').on('click', function () {
+        if ($(this).hasClass('error')) {
+            alert('시안의 오류를 작성해주세요.');
+            $('.l_draft textarea').attr('disabled', false);
+        } else {
+            $('.l_draft textarea').attr('disabled', true);
+        }
+    });
+    
+    $('.l_draft button.confirm').on('click', function () {
+        if ($('.l_draft .draftCheck input[type=radio]:checked').length == 0) {
+            alert('시안을 확인하시고 진행 여부를 선택해주세요.');
+        } else if ($('.l_draft .draftCheck input[type=radio]:checked').hasClass('error')) {
+            confirm('시안의 오류를 제출하시겠습니까?');
+        } else {
+            confirm('시안을 확인했으며, 이대로 인쇄를 진행하시겠습니까?');
+        }
+    });
+</script>

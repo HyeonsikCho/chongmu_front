@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<?
+header("Progma:no-cache");
+header("Cache-Control:no-cache,must-revalidate");
+?>
+<html lang="ko">
+<head>
+    [TPH_I/common/head.html]
+	<script src="[TPH_Vdesign_dir]/js/lib/jquery.form.min.js"></script>
+	<script src="[TPH_Vdesign_dir]/js/lib/jquery.number.min.js"></script>
+	<script src="[TPH_Vdesign_dir]/js/product/aft_lib.js"></script>
+	<script type="text/javascript" src="https://pg.easypay.co.kr/webpay/EasypayCard_Web.js"></script>
+	<script language="javascript" src="/proc/easypay80_webpay_php/web/js/default.js" type="text/javascript"></script>
+	<script type="text/javascript" src="/plupload/js/plupload.full.min.js"></script>
+    <script>
+        window.history.forward(0);
+    </script>
+</head>
+<body>
+<header class="top">
+    [TPH_I/common/header.html]
+</header>
+<section class="contents sheet">
+    <header class="title">
+        <ol class="location">
+            <li><a href="/index.html" target="_self" title="첫 화면으로"><img src="[TPH_Vdesign_dir]/images/common/contents_location_home.png" alt="HOME"></a></li>
+            <li><span>주문서 작성</span></li>
+        </ol>
+        <h2><img src="[TPH_Vdesign_dir]/images/order/title/sheet.png" alt="주문서 작성"></h2>
+        <span class="description">주문정보와 배송정보를 입력하세요.</span>
+        <ol class="sequence">
+            <li><img src="[TPH_Vdesign_dir]/images/order/sequence_step1.png" alt="STEP1 장바구니"></li>
+            <li><img src="[TPH_Vdesign_dir]/images/order/sequence_step2_on.png" alt="STEP2 주문서 작성"></li>
+            <li><img src="[TPH_Vdesign_dir]/images/order/sequence_step3.png" alt="STEP3 주문완료"></li>
+        </ol>
+    </header>
+    <section class="form order">
+        <h3><img src="[TPH_Vdesign_dir]/images/order/sheet_title_order.png" alt="주문정보"></h3>
+	[TPH_Vorder_list]
+    </section>
+    <section class="form delivery">
+		<form name='p_info' id='p_info'>
+        <h3><img src="[TPH_Vdesign_dir]/images/order/sheet_title_delivery.png" alt="배송정보"></h3>
+        <table class="input from">
+            <colgroup>
+                <col width="120">
+                <col>
+                <col width="120">
+                <col>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>보내시는 분</th>
+                    <td colspan="3">
+                        <label><input type="radio" name="s_fchk"> 디프린팅 정보 입력</label>
+                        <label><input type="radio" name="s_fchk" checked onClick="dlvr_change('1','send');"> 회원정보와 동일</label>
+                        <label><input type="radio" name="s_fchk" onClick="dlvr_change('3','send');"> 새로운 정보 입력</label>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">성명/상호  <p class="note">(필수)</p></th>
+                    <td colspan="3"><input type="text" class="name" name="order_user_name" id='order_user_name' value='[TPH_Vorder_user_name]'></td>
+                </tr>
+                <tr>
+                    <th scope="row">연락처</th>
+                    <td>
+                        <input type="text" size=30 maxlength=3 name='order_user_telno' id='order_user_telno1' value="[TPH_Vorder_user_telno1]" style="text-align:center" onkeyup="autoMove(this.value, p_info.order_user_telno[1], 3)"> -
+						<input type="text" size=40 maxlength=4 name='order_user_telno' id='order_user_telno2' value="[TPH_Vorder_user_telno2]" style="text-align:center" onkeyup="autoMove(this.value, p_info.order_user_telno[2], 4)"> -
+						<input type="text" size=40 maxlength=4 name='order_user_telno' id='order_user_telno3' value="[TPH_Vorder_user_telno3]" style="text-align:center">
+                    </td>
+                    <th scope="row">휴대전화 <p class="note">(필수)</p></th>
+                    <td>
+                        <input type="text" size=30 maxlength=3 name='order_user_phno' id='order_user_phno1' value="[TPH_Vorder_user_phno1]" style="text-align:center" onkeyup="autoMove(this.value, p_info.order_user_phno[1], 3)"> -
+						<input type="text" size=40 maxlength=4 name='order_user_phno' id='order_user_phno2' value="[TPH_Vorder_user_phno2]" style="text-align:center" onkeyup="autoMove(this.value, p_info.order_user_phno[2], 4)"> -
+						<input type="text" size=40 maxlength=4 name='order_user_phno' id='order_user_phno3' value="[TPH_Vorder_user_phno3]" style="text-align:center">
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">주소 <p class="note">(필수)</p></th>
+                    <td colspan="3">
+                        <div class="rowWrap">
+
+                            <input type="text" readonly name="order_user_zipcode" id="order_user_zipcode" value="[TPH_Vorder_user_zipcode]">
+                            <button onClick="execDaumPostcode('f')" type="button">우편번호 찾기</button>
+                        </div>
+                        <div class="rowWrap">
+                            <input type="text" class="address" name="order_user_addr1" id="order_user_addr1"  value="[TPH_Vorder_user_addr1]" readonly>
+                            <input type="text" class="address" name="order_user_addr2" id="order_user_addr2"  value="[TPH_Vorder_user_addr2]" >
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="input to">
+            <colgroup>
+                <col width="120">
+                <col>
+                <col width="120">
+                <col>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>받으시는 분</th>
+                    <td colspan="3">
+                        <label><input type="radio" name="r_fchk" checked onClick="dlvr_change('1','res');"> 회원정보와 동일</label>
+                        <label><input type="radio" name="r_fchk" onClick="dlvr_change('2','res');"> 보내시는분 정보와 동일</label>
+                        <label><input type="radio" name="r_fchk" onClick="dlvr_change('3','res');"> 새로운 정보 입력</label>
+                      <!--  <button onclick="layerPopup('l_addressList', 'popup/l_addresslist.html')">나의배송지 선택</button>-->
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">배송비 지불 <p class="note">(필수)</p></th>
+                    <td colspan="3">
+                        <label><input type="radio" name="pamentType" [TPH_Vdelivery_chk1] onChange="setDelivery(this,'[TPH_Vorder_no]','add');" value="01"> 선불</label>
+                        <label><input type="radio" name="pamentType" [TPH_Vdelivery_chk2] onChange="setDelivery(this,'[TPH_Vorder_no]','del');" value="02"> 착불</label>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">성명/상호 <p class="note">(필수)</p></th>
+                    <td colspan="3" class="name"><input type="text" class="name" name="res_user_name" id='res_user_name' value='[TPH_Vorder_user_name]'></td>
+                </tr>
+                <tr>
+                    <th scope="row">연락처</th>
+                    <td>
+                        <input type="text" size=30 maxlength=3 name='res_user_telno' id='res_user_telno1' value="[TPH_Vorder_user_telno1]" style="text-align:center" onkeyup="autoMove(this.value, p_info.res_user_telno[1], 3)"> -
+						<input type="text" size=40 maxlength=4 name='res_user_telno' id='res_user_telno2' value="[TPH_Vorder_user_telno2]" style="text-align:center" onkeyup="autoMove(this.value, p_info.res_user_telno[2], 4)"> -
+						<input type="text" size=40 maxlength=4 name='res_user_telno' id='res_user_telno3' value="[TPH_Vorder_user_telno3]" style="text-align:center">
+                    </td>
+                    <th scope="row">휴대전화 <p class="note">(필수)</p></th>
+                    <td>
+                        <input type="text" size=30 maxlength=3 name='res_user_phno' id='res_user_phno1' value="[TPH_Vorder_user_phno1]" style="text-align:center" onkeyup="autoMove(this.value, p_info.res_user_phno[1], 3)"> -
+						<input type="text" size=40 maxlength=4 name='res_user_phno' id='res_user_phno2' value="[TPH_Vorder_user_phno2]" style="text-align:center" onkeyup="autoMove(this.value, p_info.res_user_phno[2], 4)"> -
+						<input type="text" size=40 maxlength=4 name='res_user_phno' id='res_user_phno3' value="[TPH_Vorder_user_phno3]" style="text-align:center">
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">주소 <p class="note">(필수)</p></th>
+                    <td colspan="3">
+                        <!--<button class="addressRegist" onclick="layerPopup('l_addressRegister', 'popup/l_addressregister.html')">나의배송지로 등록</button>-->
+                        <div class="rowWrap">
+
+                            <input type="text" readonly name="res_user_zipcode" id="res_user_zipcode" value="[TPH_Vorder_user_zipcode]">
+                            <button onClick="execDaumPostcode('s')" type="button">우편번호 찾기</button>
+                        </div>
+                        <div class="rowWrap">
+                            <input type="text" class="address" name="res_user_addr1" id="res_user_addr1" value="[TPH_Vorder_user_addr1]"  readonly>
+                            <input type="text" class="address" name="res_user_addr2" id="res_user_addr2" value="[TPH_Vorder_user_addr2]" >
+                        </div>
+                    </td>
+				</tr>
+            </tbody>
+        </table>
+		</form>
+    </section>
+    <section class="form memo">
+        <h3><img src="[TPH_Vdesign_dir]/images/order/sheet_title_memo.png" alt="주문메모"></h3>
+        <p class="note"> 고객님께서 배송에 대해 당부하실 내용을 메모하세요.</p>
+        <div class="textareaWrap">
+            <textarea class="memo" id='order_memo'></textarea>
+        </div>
+    </section>
+    <section class="form payment pointsearch">
+        <h3><img src="[TPH_Vdesign_dir]/images/order/sheet_title_payment.png" alt="결제정보"></h3>
+        <dl>
+            <dt>주문금액</dt>
+            <dd><span id='prd_amnt'>[TPH_Vaddtax_prd_amnt]</span> 원</dd>
+            <dt>배송비</dt>
+            <dd><span id='deli_pay'>[TPH_Vdelivery_amnt]</span>원</dd>
+            <dt>마일리지</dt>
+            <dd>
+                <button onclick="cpointPop()" title="마일리지 사용">조회</button>
+                <input type='text' name='plzp_point' value='0' class='vplzp_point' style='width:50px;' readOnly><span class="unit">P</span>
+            </dd>
+        </dl>
+        <dl>
+            <dt>주문금액합계</dt>
+            <dd><span id='order_amnt'>[TPH_Vaddtax_order_amnt]</span> 원</dd>
+            <dt>할인금액 합계</dt>
+            <dd><strong class="discount" id='discount'>0</strong> 원</dd>
+            <dt>최종 결제금액</dt>
+            <dd><strong class='last_amnt' >[TPH_Vaddtax_order_amnt]</strong> 원</dd>
+            <dt>결제 방법</dt>
+            <dd class="_paymentType">
+               <!-- <label><input type="checkbox" class="_prepaid"> 선입금</label>-->
+                <label><input type="radio" class="_card" value="11" name="pay" checked>카드결제</label>
+				[TPH_Vbankhtml]
+            </dd>
+        </dl>
+    </section>
+    <article class="priceSummary">
+        <dl class="total">
+            <dt>최종 결제금액</dt>
+            <dd><strong class='last_amnt' >[TPH_Vaddtax_order_amnt]</strong> 원</dd>
+        </dl>
+        <dl class="prepaid">
+            <dt>선입금</dt>
+            <dd><strong>100,000</strong> 원</dd>
+        </dl>
+        <dl class="paymentAmount">
+            <dt>주문 부족 금액</dt>
+            <dd><strong>442,600</strong> 원</dd>
+        </dl>
+    </article>
+    <div class="function center">
+        <strong><button type='button' onclick="start_pay();">결제하기</button></strong>
+        <button type='button' class="gray" onClick="location.href='/order/cart.html'">장바구니로 돌아가기</button>
+    </div>
+	<input type='hidden' id='rdelivery_amnt' value='[TPH_Vrdelivery_amnt]'>
+	<input type='hidden' id='fs_user_name' value='[TPH_Vorder_user_name]'>
+	<input type='hidden' id='fs_ph_num' value='[TPH_Vorder_user_phno]'>
+	<input type='hidden' id='fs_tel_num' value='[TPH_Vorder_user_telno]'>
+	<input type='hidden' id='fs_zipcode' value='[TPH_Vorder_user_zipcode]'>
+	<input type='hidden' id='fs_addr1' value='[TPH_Vorder_user_addr1]'>
+	<input type='hidden' id='fs_addr2' value='[TPH_Vorder_user_addr2]'>
+	<input type='hidden' id='order_f_title' value='[TPH_Vorder_f_title]'>
+	<input type='hidden' id='pay_order_amnt' name='pay_order_amnt' value='[TPH_Vprd_amnt]'>
+	<input type='hidden' id='tot_order_amnt' name='tot_order_amnt' value='[TPH_Vpay_order_amnt]'>
+	<input type='hidden' id='listcnt' value='[TPH_Vlistcnt]'>
+	<input type='hidden' id='mall_nm' value='주식회사 굿프린팅'>
+	<input type='hidden' id='product_nm' value='[TPH_Vorder_title]'>
+	<input type='hidden' id='user_nm' value='[TPH_Vorder_user_name]'>
+	<input type='hidden' id='user_addr' value=''>
+
+	<form name='p_pay' id='p_pay' method='post' action='/order/complete.html'>
+		<input type='hidden' id='order_no' name='order_no' value=''>
+		<input type='hidden' id='t_amount' name='t_amount' value=''>
+		<input type='hidden'  class='vplzp_point'  name='plzp_point' value=''>
+		<input type="hidden" id="cart_prdlist_id"  name="cart_prdlist_id" value="[TPH_Vcart_prdlist_id]">
+		<input type='hidden' id='title' name='title' value=''>
+	</form>
+<form name="frm_pay" method="post" action="">
+
+
+	<input type="hidden" id="EP_mall_id"        name="EP_mall_id"           value="05528819">
+	<input type="hidden" id="EP_mall_nm"        name="EP_mall_nm"           value="">         <!-- 가맹점 이름 // -->
+	<input type="hidden" id="EP_order_no"       name="EP_order_no"          value="[TPH_Vorder_no]">         <!-- 가맹점 주문번호 // -->
+	<input type="hidden" id="EP_currency"       name="EP_currency"          value="00">       <!-- 통화코드 // 00 : 원화-->
+	<input type="hidden" id="EP_return_url"     name="EP_return_url"        value="http://[TPH_Vserver_name]/proc/easypay80_webpay_php/web/normal/order_res.php">         <!-- 가맹점 CALLBACK URL // -->
+	<input type="hidden" id="EP_pay_type"       name="EP_pay_type"          value=''>
+	<input type="hidden" id="EP_product_nm"    name="EP_product_nm"       value="[TPH_Vorder_title]">
+	<input type="hidden" id="EP_product_amt"    name="EP_product_amt"       value="[TPH_Vpay_order_amnt]">
+	<input type="hidden" id="EP_ci_url"         name="EP_ci_url"            value="">         <!-- CI LOGO URL // -->
+	<input type="hidden" id="EP_lang_flag"      name="EP_lang_flag"         value="">         <!-- 언어 // -->
+	<input type="hidden" id="EP_charset"        name="EP_charset"           value="UTF-8">   <!-- 가맹점 CharSet // -->
+	<input type="hidden" id="EP_user_type"      name="EP_user_type"         value="">         <!-- 사용자구분 // -->
+	<input type="hidden" id="EP_user_id"        name="EP_user_id"           value="KD0DKGK8335">         <!-- 가맹점 고객ID // -->
+	<input type="hidden" id="EP_memb_user_no"   name="EP_memb_user_no"      value="">         <!-- 가맹점 고객일련번호 // -->
+	<input type="hidden" id="EP_user_nm"        name="EP_user_nm"           value="">         <!-- 가맹점 고객명 // -->
+	<input type="hidden" id="EP_user_mail"      name="EP_user_mail"         value="">         <!-- 가맹점 고객 E-mail // -->
+	<input type="hidden" id="EP_user_phone1"    name="EP_user_phone1"       value="">         <!-- 가맹점 고객 연락처1 // -->
+	<input type="hidden" id="EP_user_phone2"    name="EP_user_phone2"       value="">         <!-- 가맹점 고객 연락처2 // -->
+	<input type="hidden" id="EP_user_addr"      name="EP_user_addr"         value="">         <!-- 가맹점 고객 주소 // -->
+	<input type="hidden" id="EP_user_define1"   name="EP_user_define1"      value="">         <!-- 가맹점 필드1 // -->
+	<input type="hidden" id="EP_user_define2"   name="EP_user_define2"      value="0">         <!-- 가맹점 필드2 // -->
+	<input type="hidden" id="EP_user_define3"   name="EP_user_define3"      value="[TPH_Vcart_prdlist_id]">         <!-- 가맹점 필드3 // -->
+	<input type="hidden" id="EP_user_define4"   name="EP_user_define4"      value="">         <!-- 가맹점 필드4 // -->
+	<input type="hidden" id="EP_user_define5"   name="EP_user_define5"      value="">         <!-- 가맹점 필드5 // -->
+	<input type="hidden" id="EP_user_define6"   name="EP_user_define6"      value="">         <!-- 가맹점 필드6 // -->
+	<input type="hidden" id="EP_product_type"   name="EP_product_type"      value="">         <!-- 상품정보구분 // -->
+	<input type="hidden" id="EP_product_expr"   name="EP_product_expr"      value="">         <!-- 서비스 기간 // (YYYYMMDD) -->
+	<input type="hidden" id="EP_window_type"   name="EP_window_type"      value="iframe">
+
+
+
+
+	<input type="hidden" id="EP_usedcard_code"      name="EP_usedcard_code"     value="">      <!-- 사용가능한 카드 LIST // FORMAT->카드코드:카드코드: ... :카드코드 EXAMPLE->029:027:031 // 빈값 : DB조회-->
+	<input type="hidden" id="EP_quota"              name="EP_quota"             value="">      <!-- 할부개월 (카드코드-할부개월) -->
+	<input type="hidden" id="EP_os_cert_flag"       name="EP_os_cert_flag"      value="2">     <!-- 해외안심클릭 사용여부(변경불가) // -->
+	<input type="hidden" id="EP_noinst_flag"        name="EP_noinst_flag"       value="">      <!-- 무이자 여부 (Y/N) // -->
+	<input type="hidden" id="EP_noinst_term"        name="EP_noinst_term"       value="">      <!-- 무이자 기간(카드코드-더할할부개월) // -->
+	<input type="hidden" id="EP_set_point_card_yn"  name="EP_set_point_card_yn" value="">      <!-- 카드사포인트 사용여부 (Y/N) // -->
+	<input type="hidden" id="EP_point_card"         name="EP_point_card"        value="">      <!-- 포인트카드 LIST  // -->
+	<input type="hidden" id="EP_join_cd"            name="EP_join_cd"           value="">      <!-- 조인코드 // -->
+	<input type="hidden" id="EP_kmotion_useyn"      name="EP_kmotion_useyn"     value="">      <!-- 국민앱카드 사용유무 // -->
+
+
+
+	<input type="hidden" id="EP_vacct_bank"      name="EP_vacct_bank"     value="">      <!-- 가상계좌 사용가능한 은행 LIST // -->
+	<input type="hidden" id="EP_vacct_end_date"  name="EP_vacct_end_date" value="">      <!-- 입금 만료 날짜 // -->
+	<input type="hidden" id="EP_vacct_end_time"  name="EP_vacct_end_time" value="">      <!-- 입금 만료 시간 // -->
+
+
+
+	<input type="hidden" id="EP_prepaid_cp"    name="EP_prepaid_cp"     value="">      <!-- 선불카드 CP // FORMAT->코드:코드: ... :코드 EXAMPLE->CCB:ECB // 빈값 : DB조회-->
+
+
+	<input type="hidden" id="EP_res_cd"          name="EP_res_cd"         value="">      <!--  응답코드 // -->
+	<input type="hidden" id="EP_res_msg"         name="EP_res_msg"        value="">      <!--  응답메세지 // -->
+	<input type="hidden" id="EP_tr_cd"           name="EP_tr_cd"          value="">      <!--  결제창 요청구분 // -->
+	<input type="hidden" id="EP_ret_pay_type"    name="EP_ret_pay_type"   value="">      <!--  결제수단 // -->
+	<input type="hidden" id="EP_ret_complex_yn"  name="EP_ret_complex_yn" value="">      <!--  복합결제 여부 (Y/N) // -->
+	<input type="hidden" id="EP_card_code"       name="EP_card_code"      value="">      <!--  카드코드 (ISP:KVP카드코드 MPI:카드코드) // -->
+	<input type="hidden" id="EP_eci_code"        name="EP_eci_code"       value="">      <!--  MPI인 경우 ECI코드 // -->
+	<input type="hidden" id="EP_card_req_type"   name="EP_card_req_type"  value="">      <!--  거래구분 // -->
+	<input type="hidden" id="EP_save_useyn"      name="EP_save_useyn"     value="">      <!--  카드사 세이브 여부 (Y/N) // -->
+	<input type="hidden" id="EP_trace_no"        name="EP_trace_no"       value="">      <!--  추적번호 // -->
+	<input type="hidden" id="EP_sessionkey"      name="EP_sessionkey"     value="">      <!--  세션키 // -->
+	<input type="hidden" id="EP_encrypt_data"    name="EP_encrypt_data"   value="">      <!--  암호화전문 // -->
+	<input type="hidden" id="EP_pnt_cp_cd"       name="EP_pnt_cp_cd"      value="">      <!--  포인트 CP 코드 // -->
+	<input type="hidden" id="EP_spay_cp"         name="EP_spay_cp"        value="">      <!--  간편결제 CP 코드 // -->
+	<input type="hidden" id="EP_card_prefix"     name="EP_card_prefix"    value="">      <!--  신용카드prefix // -->
+	<input type="hidden" id="EP_card_no_7"       name="EP_card_no_7"      value="">      <!--  신용카드번호 앞7자리 // -->
+	</form>
+
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script>
+    function f_start_pay() {
+		var frm_pay = document.frm_pay;
+
+        /* UTF-8 사용가맹점의 경우 EP_charset 값 셋팅 필수 */
+        if ( frm_pay.EP_charset.value == "UTF-8" ) {
+            // 한글이 들어가는 값은 모두 encoding 필수.
+            frm_pay.EP_mall_nm.value      = encodeURIComponent( $('#mall_nm').val());
+            frm_pay.EP_product_nm.value   = encodeURIComponent( $('#product_nm').val());
+            frm_pay.EP_user_nm.value      = encodeURIComponent( $('#user_nm').val());
+            frm_pay.EP_user_addr.value   = encodeURIComponent($('#user_addr').val());
+        }
+
+		frm_pay.EP_pay_type.value      = $(':radio[name="pay"]:checked').val();
+
+		 easypay_webpay(frm_pay,"/proc/easypay80_webpay_php/web/normal/iframe_req.php","hiddenifr","0","0","iframe",30);
+    }
+
+    function f_submit()
+    {
+        var frm_pay = document.frm_pay;
+        frm_pay.target = "_self";
+        frm_pay.action = "/proc/easypay80_webpay_php/web/easypay_request.php";
+        frm_pay.submit();
+    }
+
+    //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
+    function execDaumPostcode(flag) {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var fullAddr = ''; // 최종 주소 변수
+                var extraAddr = ''; // 조합형 주소 변수
+
+                // 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    fullAddr = data.roadAddress;
+
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    fullAddr = data.jibunAddress;
+                }
+
+                // 사용자가 선택한 주소가 도로명 타입일때 조합한다.
+                if(data.userSelectedType === 'R'){
+                    //법정동명이 있을 경우 추가한다.
+                    if(data.bname !== ''){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있을 경우 추가한다.
+                    if(data.buildingName !== ''){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+                    fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+                }
+
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+				if(flag == 'f'){
+					document.getElementById('order_user_zipcode').value = data.zonecode; //5자리 새우편번호 사용
+					document.getElementById('order_user_addr1').value = fullAddr;
+					document.getElementById('order_user_addr2').focus();
+				}else{
+					document.getElementById('res_user_zipcode').value = data.zonecode; //5자리 새우편번호 사용
+					document.getElementById('res_user_addr1').value = fullAddr;
+					document.getElementById('res_user_addr2').focus();
+				}
+
+            }
+        }).open();
+    }
+</script>
+</section>
+[TPH_I/common/quickMenu.html]
+<footer>
+    [TPH_I/common/footer.html]
+</footer>
+</body>
+</html>

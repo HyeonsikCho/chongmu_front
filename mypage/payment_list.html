@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <title>하이프린트</title>
+    <!--[if lt IE 9]><script src="../../lib/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="../../lib/reset.css">
+    <link rel="stylesheet" href="../../lib/common.css">
+    <link rel="stylesheet" href="../../lib/mypage.css">
+    <script src="../../lib/jquery-1.11.2.min.js"></script>
+    <script src="../../lib/jquery-ui_dprinting.min.js"></script>
+    <script src="../common/header.js"></script>
+    <script src="../common/footer.js"></script>
+    <script src="./lnb.js"></script>
+    <script src="../../lib/common.js"></script>
+    <script src="../../lib/mypage.js"></script>
+</head>
+<body>
+<header class="top"></header>
+<section class="contents lnb paymentInfo">
+    <header class="title">
+        <h2><img src="../../images/mypage/title.png" alt="마이페이지"></h2>
+        <ol class="location">
+            <li><a href="#none" target="_self" title="첫 화면으로"><img src="../../images/common/contents_location_home.png" alt="HOME"></a></li>
+            <li><span>마이페이지</span></li>
+            <li><span>결제 정보</span></li>
+            <li><span>결제 내역</span></li>
+        </ol>
+    </header>
+    <nav class="lnb">
+    </nav>
+    <h3 class="pageTitle">결제 내역</h3>
+    <section class="moneyInformation">
+        <dl class="prepaid">
+            <dt>선입금</dt>
+            <dd>&#8361;250,000</dd>
+        </dl>
+        <dl class="restAmount">
+            <dt>주문 부족 금액</dt>
+            <dd>&#8361;178,000</dd>
+        </dl>
+    </section>
+    <section class="searchCondition">
+        <div class="rowWrap">
+            <dl class="date">
+                <dt>거래일</dt>
+                <dd>
+                    <input type="text" class="_date" value="2015-06-24">
+                    ~
+                    <input type="text" class="_date" value="2015-06-30">
+                    <ul class="preset">
+                        <li><button>오늘</button></li>
+                        <li><button>어제</button></li>
+                        <li><button>일주일</button></li>
+                        <li><button>한달</button></li>
+                    </ul>
+                </dd>
+            </dl>
+            <dl class="category last">
+                <dt>구분</dt>
+                <dd>
+                    <select>
+                        <option>전체</option>
+                    </select>
+                </dd>
+            </dl>
+        </div>
+        <button class="search">검색</button>
+    </section>
+    <table class="list searchResult _details">
+        <caption>
+            <div class="resultNum">
+                <strong>2015-06-24</strong>부터 <strong>2015-06-30</strong>까지 <em>34</em>건의 검색결과가 있습니다.
+            </div>
+            <select class="listNum">
+                <option>10개씩 보기</option>
+                <option>20개씩 보기</option>
+                <option>50개씩 보기</option>
+            </select>
+        </caption>
+        <colgroup>
+            <col width="40">
+            <col width="70">
+            <col width="50">
+            <col width="110">
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th class="_sorting">거래일</th>
+                <th class="_sorting">구분</th>
+                <th class="_sorting">주문번호</th>
+                <th class="_sorting">판매가</th>
+                <th class="_sorting">할인금액</th>
+                <th class="_sorting">결제금액</th>
+                <th class="_sorting">입금액</th>
+                <th class="_sorting">입금방식</th>
+                <th class="_sorting">기존선입금</th>
+                <th class="_sorting">선입금잔액</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>10</td>
+                <td>2015-03-20</td>
+                <td>입금</td>
+                <td>15938171990
+                    <button class="viewOrderDetails _showOrderDetails _on" title="상세보기"><img src="../../images/common/btn_table_circle_bottom.png" alt="▼"></button>
+                    <button class="viewOrderDetails _hideOrderDetails" title="상세접기"><img src="../../images/common/btn_table_circle_top_green.png" alt="▲"></button>
+                </td>
+                <td>&#8361;14,000,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+            </tr>
+            <tr class="_orderDetails">
+                <td colspan="11">
+                    <div class="wrap">
+                        <figure><img src="../../images/sample/order_cart_product.png" alt="상품명"></figure>
+                        <dl>
+                            <dt>인쇄물 제목</dt>
+                            <dd>한솥도시락 컬러 전단</dd>
+                        </dl>
+                        <dl>
+                            <dt>상품내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>합판전단(주문형)</li>
+                                    <li>아트지 백색 100g</li>
+                                    <li>A4</li>
+                                    <li>단면칼라 4도</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>후공정</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>코팅</li>
+                                    <li>네귀돌이</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>수량/건</dt>
+                            <dd>1,000 x 1 건</dd>
+                        </dl>
+                        <dl>
+                            <dt>할인내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>회원등급할인 &#8361; 5,000</li>
+                                    <li>이벤트할인 &#8361; 0</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>무게</dt>
+                            <dd>0.2Kg</dd>
+                            <dt>배송</dt>
+                            <dd>택배</dd>
+                        </dl>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>9</td>
+                <td>2015-03-20</td>
+                <td>입금</td>
+                <td>15938171990
+                    <button class="viewOrderDetails _showOrderDetails _on" title="상세보기"><img src="../../images/common/btn_table_circle_bottom.png" alt="▼"></button>
+                    <button class="viewOrderDetails _hideOrderDetails" title="상세접기"><img src="../../images/common/btn_table_circle_top_green.png" alt="▲"></button>
+                </td>
+                <td>&#8361;14,000,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+            </tr>
+            <tr class="_orderDetails">
+                <td colspan="11">
+                    <div class="wrap">
+                        <figure><img src="../../images/sample/order_cart_product.png" alt="상품명"></figure>
+                        <dl>
+                            <dt>인쇄물 제목</dt>
+                            <dd>한솥도시락 컬러 전단</dd>
+                        </dl>
+                        <dl>
+                            <dt>상품내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>합판전단(주문형)</li>
+                                    <li>아트지 백색 100g</li>
+                                    <li>A4</li>
+                                    <li>단면칼라 4도</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>후공정</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>코팅</li>
+                                    <li>네귀돌이</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>수량/건</dt>
+                            <dd>1,000 x 1 건</dd>
+                        </dl>
+                        <dl>
+                            <dt>할인내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>회원등급할인 &#8361; 5,000</li>
+                                    <li>이벤트할인 &#8361; 0</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>무게</dt>
+                            <dd>0.2Kg</dd>
+                            <dt>배송</dt>
+                            <dd>택배</dd>
+                        </dl>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>8</td>
+                <td>2015-03-20</td>
+                <td>입금</td>
+                <td>15938171990
+                    <button class="viewOrderDetails _showOrderDetails _on" title="상세보기"><img src="../../images/common/btn_table_circle_bottom.png" alt="▼"></button>
+                    <button class="viewOrderDetails _hideOrderDetails" title="상세접기"><img src="../../images/common/btn_table_circle_top_green.png" alt="▲"></button>
+                </td>
+                <td>&#8361;14,000,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+            </tr>
+            <tr class="_orderDetails">
+                <td colspan="11">
+                    <div class="wrap">
+                        <figure><img src="../../images/sample/order_cart_product.png" alt="상품명"></figure>
+                        <dl>
+                            <dt>인쇄물 제목</dt>
+                            <dd>한솥도시락 컬러 전단</dd>
+                        </dl>
+                        <dl>
+                            <dt>상품내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>합판전단(주문형)</li>
+                                    <li>아트지 백색 100g</li>
+                                    <li>A4</li>
+                                    <li>단면칼라 4도</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>후공정</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>코팅</li>
+                                    <li>네귀돌이</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>수량/건</dt>
+                            <dd>1,000 x 1 건</dd>
+                        </dl>
+                        <dl>
+                            <dt>할인내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>회원등급할인 &#8361; 5,000</li>
+                                    <li>이벤트할인 &#8361; 0</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>무게</dt>
+                            <dd>0.2Kg</dd>
+                            <dt>배송</dt>
+                            <dd>택배</dd>
+                        </dl>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>7</td>
+                <td>2015-03-20</td>
+                <td>입금</td>
+                <td>15938171990
+                    <button class="viewOrderDetails _showOrderDetails _on" title="상세보기"><img src="../../images/common/btn_table_circle_bottom.png" alt="▼"></button>
+                    <button class="viewOrderDetails _hideOrderDetails" title="상세접기"><img src="../../images/common/btn_table_circle_top_green.png" alt="▲"></button>
+                </td>
+                <td>&#8361;14,000,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+            </tr>
+            <tr class="_orderDetails">
+                <td colspan="11">
+                    <div class="wrap">
+                        <figure><img src="../../images/sample/order_cart_product.png" alt="상품명"></figure>
+                        <dl>
+                            <dt>인쇄물 제목</dt>
+                            <dd>한솥도시락 컬러 전단</dd>
+                        </dl>
+                        <dl>
+                            <dt>상품내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>합판전단(주문형)</li>
+                                    <li>아트지 백색 100g</li>
+                                    <li>A4</li>
+                                    <li>단면칼라 4도</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>후공정</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>코팅</li>
+                                    <li>네귀돌이</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>수량/건</dt>
+                            <dd>1,000 x 1 건</dd>
+                        </dl>
+                        <dl>
+                            <dt>할인내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>회원등급할인 &#8361; 5,000</li>
+                                    <li>이벤트할인 &#8361; 0</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>무게</dt>
+                            <dd>0.2Kg</dd>
+                            <dt>배송</dt>
+                            <dd>택배</dd>
+                        </dl>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>6</td>
+                <td>2015-03-20</td>
+                <td>입금</td>
+                <td>15938171990
+                    <button class="viewOrderDetails _showOrderDetails _on" title="상세보기"><img src="../../images/common/btn_table_circle_bottom.png" alt="▼"></button>
+                    <button class="viewOrderDetails _hideOrderDetails" title="상세접기"><img src="../../images/common/btn_table_circle_top_green.png" alt="▲"></button>
+                </td>
+                <td>&#8361;14,000,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+            </tr>
+            <tr class="_orderDetails">
+                <td colspan="11">
+                    <div class="wrap">
+                        <figure><img src="../../images/sample/order_cart_product.png" alt="상품명"></figure>
+                        <dl>
+                            <dt>인쇄물 제목</dt>
+                            <dd>한솥도시락 컬러 전단</dd>
+                        </dl>
+                        <dl>
+                            <dt>상품내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>합판전단(주문형)</li>
+                                    <li>아트지 백색 100g</li>
+                                    <li>A4</li>
+                                    <li>단면칼라 4도</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>후공정</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>코팅</li>
+                                    <li>네귀돌이</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>수량/건</dt>
+                            <dd>1,000 x 1 건</dd>
+                        </dl>
+                        <dl>
+                            <dt>할인내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>회원등급할인 &#8361; 5,000</li>
+                                    <li>이벤트할인 &#8361; 0</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>무게</dt>
+                            <dd>0.2Kg</dd>
+                            <dt>배송</dt>
+                            <dd>택배</dd>
+                        </dl>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>5</td>
+                <td>2015-03-20</td>
+                <td>입금</td>
+                <td>15938171990
+                    <button class="viewOrderDetails _showOrderDetails _on" title="상세보기"><img src="../../images/common/btn_table_circle_bottom.png" alt="▼"></button>
+                    <button class="viewOrderDetails _hideOrderDetails" title="상세접기"><img src="../../images/common/btn_table_circle_top_green.png" alt="▲"></button>
+                </td>
+                <td>&#8361;14,000,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+            </tr>
+            <tr class="_orderDetails">
+                <td colspan="11">
+                    <div class="wrap">
+                        <figure><img src="../../images/sample/order_cart_product.png" alt="상품명"></figure>
+                        <dl>
+                            <dt>인쇄물 제목</dt>
+                            <dd>한솥도시락 컬러 전단</dd>
+                        </dl>
+                        <dl>
+                            <dt>상품내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>합판전단(주문형)</li>
+                                    <li>아트지 백색 100g</li>
+                                    <li>A4</li>
+                                    <li>단면칼라 4도</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>후공정</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>코팅</li>
+                                    <li>네귀돌이</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>수량/건</dt>
+                            <dd>1,000 x 1 건</dd>
+                        </dl>
+                        <dl>
+                            <dt>할인내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>회원등급할인 &#8361; 5,000</li>
+                                    <li>이벤트할인 &#8361; 0</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>무게</dt>
+                            <dd>0.2Kg</dd>
+                            <dt>배송</dt>
+                            <dd>택배</dd>
+                        </dl>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>4</td>
+                <td>2015-03-20</td>
+                <td>입금</td>
+                <td>15938171990
+                    <button class="viewOrderDetails _showOrderDetails _on" title="상세보기"><img src="../../images/common/btn_table_circle_bottom.png" alt="▼"></button>
+                    <button class="viewOrderDetails _hideOrderDetails" title="상세접기"><img src="../../images/common/btn_table_circle_top_green.png" alt="▲"></button>
+                </td>
+                <td>&#8361;14,000,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+            </tr>
+            <tr class="_orderDetails">
+                <td colspan="11">
+                    <div class="wrap">
+                        <figure><img src="../../images/sample/order_cart_product.png" alt="상품명"></figure>
+                        <dl>
+                            <dt>인쇄물 제목</dt>
+                            <dd>한솥도시락 컬러 전단</dd>
+                        </dl>
+                        <dl>
+                            <dt>상품내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>합판전단(주문형)</li>
+                                    <li>아트지 백색 100g</li>
+                                    <li>A4</li>
+                                    <li>단면칼라 4도</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>후공정</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>코팅</li>
+                                    <li>네귀돌이</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>수량/건</dt>
+                            <dd>1,000 x 1 건</dd>
+                        </dl>
+                        <dl>
+                            <dt>할인내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>회원등급할인 &#8361; 5,000</li>
+                                    <li>이벤트할인 &#8361; 0</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>무게</dt>
+                            <dd>0.2Kg</dd>
+                            <dt>배송</dt>
+                            <dd>택배</dd>
+                        </dl>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>3</td>
+                <td>2015-03-20</td>
+                <td>입금</td>
+                <td>15938171990
+                    <button class="viewOrderDetails _showOrderDetails _on" title="상세보기"><img src="../../images/common/btn_table_circle_bottom.png" alt="▼"></button>
+                    <button class="viewOrderDetails _hideOrderDetails" title="상세접기"><img src="../../images/common/btn_table_circle_top_green.png" alt="▲"></button>
+                </td>
+                <td>&#8361;14,000,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+            </tr>
+            <tr class="_orderDetails">
+                <td colspan="11">
+                    <div class="wrap">
+                        <figure><img src="../../images/sample/order_cart_product.png" alt="상품명"></figure>
+                        <dl>
+                            <dt>인쇄물 제목</dt>
+                            <dd>한솥도시락 컬러 전단</dd>
+                        </dl>
+                        <dl>
+                            <dt>상품내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>합판전단(주문형)</li>
+                                    <li>아트지 백색 100g</li>
+                                    <li>A4</li>
+                                    <li>단면칼라 4도</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>후공정</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>코팅</li>
+                                    <li>네귀돌이</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>수량/건</dt>
+                            <dd>1,000 x 1 건</dd>
+                        </dl>
+                        <dl>
+                            <dt>할인내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>회원등급할인 &#8361; 5,000</li>
+                                    <li>이벤트할인 &#8361; 0</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>무게</dt>
+                            <dd>0.2Kg</dd>
+                            <dt>배송</dt>
+                            <dd>택배</dd>
+                        </dl>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>2</td>
+                <td>2015-03-20</td>
+                <td>입금</td>
+                <td>15938171990
+                    <button class="viewOrderDetails _showOrderDetails _on" title="상세보기"><img src="../../images/common/btn_table_circle_bottom.png" alt="▼"></button>
+                    <button class="viewOrderDetails _hideOrderDetails" title="상세접기"><img src="../../images/common/btn_table_circle_top_green.png" alt="▲"></button>
+                </td>
+                <td>&#8361;14,000,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+            </tr>
+            <tr class="_orderDetails">
+                <td colspan="11">
+                    <div class="wrap">
+                        <figure><img src="../../images/sample/order_cart_product.png" alt="상품명"></figure>
+                        <dl>
+                            <dt>인쇄물 제목</dt>
+                            <dd>한솥도시락 컬러 전단</dd>
+                        </dl>
+                        <dl>
+                            <dt>상품내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>합판전단(주문형)</li>
+                                    <li>아트지 백색 100g</li>
+                                    <li>A4</li>
+                                    <li>단면칼라 4도</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>후공정</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>코팅</li>
+                                    <li>네귀돌이</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>수량/건</dt>
+                            <dd>1,000 x 1 건</dd>
+                        </dl>
+                        <dl>
+                            <dt>할인내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>회원등급할인 &#8361; 5,000</li>
+                                    <li>이벤트할인 &#8361; 0</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>무게</dt>
+                            <dd>0.2Kg</dd>
+                            <dt>배송</dt>
+                            <dd>택배</dd>
+                        </dl>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2015-03-20</td>
+                <td>입금</td>
+                <td>15938171990
+                    <button class="viewOrderDetails _showOrderDetails _on" title="상세보기"><img src="../../images/common/btn_table_circle_bottom.png" alt="▼"></button>
+                    <button class="viewOrderDetails _hideOrderDetails" title="상세접기"><img src="../../images/common/btn_table_circle_top_green.png" alt="▲"></button>
+                </td>
+                <td>&#8361;14,000,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+                <td>&#8361;14,000</td>
+            </tr>
+            <tr class="_orderDetails">
+                <td colspan="11">
+                    <div class="wrap">
+                        <figure><img src="../../images/sample/order_cart_product.png" alt="상품명"></figure>
+                        <dl>
+                            <dt>인쇄물 제목</dt>
+                            <dd>한솥도시락 컬러 전단</dd>
+                        </dl>
+                        <dl>
+                            <dt>상품내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>합판전단(주문형)</li>
+                                    <li>아트지 백색 100g</li>
+                                    <li>A4</li>
+                                    <li>단면칼라 4도</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>후공정</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>코팅</li>
+                                    <li>네귀돌이</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>수량/건</dt>
+                            <dd>1,000 x 1 건</dd>
+                        </dl>
+                        <dl>
+                            <dt>할인내역</dt>
+                            <dd>
+                                <ul class="information">
+                                    <li>회원등급할인 &#8361; 5,000</li>
+                                    <li>이벤트할인 &#8361; 0</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>무게</dt>
+                            <dd>0.2Kg</dd>
+                            <dt>배송</dt>
+                            <dd>택배</dd>
+                        </dl>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <ul class="paging">
+        <li class="first"><button title="첫 페이지로">1</button></li>
+        <li class="prev"><button title="이전 페이지로"><img src="../../images/common/btn_paging_prev.png" alt="<"></button></li>
+        <li><button class="on">1</button></li>
+        <li><button>2</button></li>
+        <li><button>3</button></li>
+        <li><button>4</button></li>
+        <li><button>5</button></li>
+        <li><button>6</button></li>
+        <li><button>7</button></li>
+        <li><button>8</button></li>
+        <li><button>9</button></li>
+        <li><button>10</button></li>
+        <li class="next"><button title="다음 페이지로"><img src="../../images/common/btn_paging_next.png" alt=">"></button></li>
+        <li class="last"><button title="마지막 페이지로">28</button></li>
+    </ul>
+    <div class="function narrow">
+        <div class="right">
+            <strong class="blue"><button class="function">현재 내역으로 거래명세서 발급</button></strong>
+        </div>
+    </div>
+</section>
+<footer></footer>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<?
+include_once($_SERVER["DOCUMENT_ROOT"] . "/common/sess_common.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/Template.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/ConnectionPool.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/FrontCommonUtil.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/job/order/SheetDAO.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/common_define/order_status.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/common_define/common_info.php");
+
+$frontUtil = new FrontCommonUtil();
+
+if ($is_login === false) {
+    $frontUtil->errorGoBack("로그인 후 확인 가능합니다.");
+    exit;
+}
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$template = new Template();
+$fb = new FormBean();
+$dao = new SheetDAO();
+
+// 로그인 상태인지 체크하는부분 include
+include_once($_SERVER["DOCUMENT_ROOT"] . "/common/login_check.php");
+
+$session = $fb->getSession();
+
+$price_info_arr = array();
+
+$seqno = $fb->form("seq");
+if (empty($seqno) === false) {
+    $seqno = explode('|', $seqno);
+    $seqno = $dao->arr2paramStr($conn, $seqno);
+}
+
+$onefile_etprs_yn = $session["onefile_etprs_yn"];
+$onefile_etprs_yn = 'N';
+
+// 주문 리스트 생성
+$param = array();
+$param["member_seqno"] = $session["org_member_seqno"];
+$param["order_state"]  = OrderStatus::STATUS_PROC["주문"]["대기"];
+$param["order_common_seqno"] = $seqno;
+
+$sheet_list = $dao->selectCartOrderList($conn, $param);
+
+if ($onefile_etprs_yn === 'Y') {
+    $sheet_list = makeOnefileOrderListHtml($conn,
+                                           $dao,
+                                           $sheet_list,
+                                           $price_info_arr);
+} else {
+    $sheet_list = makeEachfileOrderListHtml($conn,
+                                            $dao,
+                                            $sheet_list,
+                                            $price_info_arr);
+}
+
+$template->reg("sheet_list", $sheet_list);
+
+// 연락처, 휴대전화 앞부분 생성
+$tel_num_arr = TEL_NUM;
+$count_tel_num_arr = count($tel_num_arr);
+$tel_num = "";
+
+for ($i = 0; $i < $count_tel_num_arr; $i++) {
+    $val = $tel_num_arr[$i];
+    $tel_num .= option($val, $val);
+}
+$template->reg("tel_num", $tel_num);
+
+$cell_num_arr = CEL_NUM;
+$count_cell_num_arr = count($cell_num_arr);
+$cell_num = "";
+
+for ($i = 0; $i < $count_cell_num_arr; $i++) {
+    $val = $cell_num_arr[$i];
+    $cell_num .= option($val, $val);
+}
+$template->reg("cell_num", $cell_num);
+
+// 가격정보 생성
+$sum_discount = $price_info_arr["grade"] + $price_info_arr["event"];
+$prepay_price = doubleval($session["prepay_price"]);
+$order_lack_price = $prepay_price - $price_info_arr["sum"] - 2500; // 배송비쪽 구현 필요
+$sum_order_price = $price_info_arr["basic"] + 2500; // 배송비쪽 구현 필요
+$pay_price = $sum_order_price - $sum_discount;
+
+if ($order_lack_price >= 0) {
+    $order_lack_price = 0;
+}
+
+// 주문금액
+$template->reg("sell_price", number_format($price_info_arr["basic"]));
+// 주문금액합계
+$template->reg("sum_order_price", number_format($sum_order_price));
+// 회원등급할인
+$template->reg("grade_sale_price", number_format($price_info_arr["grade"]));
+// 이벤트
+$template->reg("event_sale_price", number_format($price_info_arr["event"]));
+// 할인금액 합계
+$template->reg("sum_discount", number_format($sum_discount));
+// 최종결재금액
+$template->reg("pay_price", number_format($pay_price));
+// 선입금
+$template->reg("prepay_price", number_format($prepay_price));
+// 주문부족금액
+$template->reg("order_lack_price", number_format($order_lack_price));
+
+// 카드결제여부 생성
+$card_pay_yn = $session["card_pay_yn"];
+$card_yn_html = "";
+if ($card_pay_yn === 'Y') {
+    $card_html = "<label><input type=\"radio\" name=\"card_pay_yn\" value=\"Y\" class=\"_card\"> 카드결제</label>";
+}
+$template->reg("card_pay_yn", $card_html);
+
+// 결제확인 팝업 정보생성
+$member_info = $dao->selectMemberInfo($conn, $session["org_member_seqno"]);
+// 주문자명
+$template->reg("member_name", $session["member_name"]);
+// 회사명
+$template->reg("member_group", $session["group_name"]);
+// 전화번호
+$template->reg("member_tel_num", $member_info["tel_num"]);
+// 휴대전화번호
+$template->reg("member_cell_num", $member_info["cell_num"]);
+// 메일
+$template->reg("member_mail", $member_info["mail"]);
+// 주소
+$member_addr = $member_info["addr"] . ' ' . $member_info["addr_detail"];
+$template->reg("member_zipcode", $member_info["zipcode"]);
+$template->reg("member_addr", $member_addr);
+
+// 기본사용 자바스크립트, css 파일 불러오는 용
+$template->reg("dir", "order");
+$template->reg("page", "sheet");
+
+//design_dir 경로
+$template->reg("design_dir", "/design_template");
+$template->htmlPrint($_SERVER["PHP_SELF"]);
+
+$conn->Close();
+?>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    [TPH_I/common/head.html]
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+</head>
+<body>
+<header class="top">
+    [TPH_I/common/header.html]
+</header>
+<section class="contents orderList">
+    <header class="title">
+        <ol class="location">
+            [TPH_I/common/home_btn.html]
+            <li><span>마이페이지</span></li>
+            <li><span>주문 정보</span></li>
+            <li><span>전체 주문</span></li>
+        </ol>
+    </header>
+    <h3 class="pageTitle">전체 주문</h3>
+    <section class="searchCondition">
+        <div class="rowWrap">
+            <dl class="date">
+                <dt>주문일</dt>
+                <dd>
+                    [TPH_I/common/datepicker.html]
+                </dd>
+            </dl>
+            <dl class="status last">
+                <dt>진행상태</dt>
+                <dd>
+                    <select id="order_state">
+                        <option value="">전체</option>
+                        <option value="100">주문완료</option>
+                        <option value="320">접수중</option>
+                        <option value="330">시안확인</option>
+                        <option value="390">접수완료</option>
+                        <option value="400">생산</option>
+                        <option value="500">배송중</option>
+                        <option value="600">완료</option>
+                        <!--
+                        <option>입금대기</option>
+                        <option>결제완료</option>
+                        <option>접수</option>
+                        <option>조판</option>
+                        <option>출력</option>
+                        <option>인쇄</option>
+                        <option>후공정</option>
+                        <option>입고</option>
+                        <option>출고</option>
+                        <option>배송</option>
+                        <option>완료</option>
+                        <option>취소</option>
+                        -->
+                    </select>
+                </dd>
+            </dl>
+        </div>
+        <div class="rowWrap">
+
+            <dl class="title last">
+                <dt>인쇄물제목</dt>
+                <dd><input id="title"  name="title" type="text"></dd>
+            </dl>
+        </div>
+        <button onclick="orderSearch();" class="search">검색</button>
+    </section>
+    <table class="list ordered _details searchResult">
+        <caption>
+            <div class="resultNum">
+                <strong class='from'>2015-06-24</strong>부터 <strong class='to'>2015-06-30</strong>까지 <em class='listcnt'>34</em>건의 검색결과가 있습니다.
+            </div>
+			<!--
+            <select class="listNum">
+                <option>10개씩 보기</option>
+                <option>20개씩 보기</option>
+                <option>50개씩 보기</option>
+            </select>
+			-->
+        </caption>
+        <colgroup>
+            <col width="40">
+            <col width="70">
+            <col width="100">
+            <col width="150">
+            <col>
+            <col width="80">
+            <col width="80">
+            <col width="40">
+        </colgroup>
+        <thead id='list'>
+            <tr>
+                <th>번호</th>
+                <th>주문일</th>
+                <th>주문번호</th>
+                <th>인쇄물제목</th>
+                <th>상품정보</th>
+                <th>수량(건)</th>
+                <th>진행상태</th>
+                <th>관리</th>
+            </tr>
+        </thead>
+		<tbody class='olist'  name=\"order_list\"><tr><td colspan=\"8\">검색 된 내용이 없습니다.</td></tr></tbody>
+    </table>
+	 <ul class="paging" id="page">
+		</ul>
+</section>
+[TPH_I/common/quickMenu.html]
+<footer>
+[TPH_I/common/footer.html]
+</footer>
+</body>
+</html>

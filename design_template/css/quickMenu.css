@@ -1,0 +1,30 @@
+/* 퀵메뉴 */
+.quickMenu { position: fixed; top: 250px; left: 50%; margin-left: 520px; padding: 70px 0 0; width: 170px; }
+.quickMenu h3 { width: 170px; height: 40px;  line-height: 40px; background: #3d5a95; text-align: center; color:#ffffff;font-size:18px;}
+.quickMenu h3 .wrap { position: absolute; /*background: url('../images/product/quickMenu_icon.png') right top no-repeat;*/ top: 0; right: 0; padding-top: 70px; width: 100%; }
+.quickMenu dl { border: solid #ccc; border-width: 0 1px; background: #fafafa; }
+.quickMenu dl.price { background: #fff; }
+.quickMenu dt,
+.quickMenu dd { border-bottom: 1px solid #ccc; height: 30px; line-height: 30px; color: #898989; font-size: 12px; }
+.quickMenu dt { float: left; padding-left: 7px; width: 80px; }
+.quickMenu dd { overflow: hidden; padding-right: 7px; text-align: right; }
+.quickMenu dd span { color: #898989; font-weight: 600; }
+.quickMenu dd strong { color: #ff5764; font-weight: 600; }
+.quickMenu .price .regular { text-decoration: line-through; }
+.quickMenu div.function { margin-top: 0; }
+.quickMenu div.function a.button { padding:0 0 0 10px; width: 160px; font-size: 15px; font-weight: 400; }
+.quickMenu div.function button { width: 83px; font-size: 11px; font-weight: 400; }
+.quickMenu div.function strong button { width: 170px; margin: 4px 0; }
+.quickMenu div.function strong + button { margin-left: 0; }
+.quickMenu div.function button + button { margin-left: 4px; }
+
+@media all and (max-width: 1380px) {
+    body,
+    footer { min-width: 1240px; }
+    header.top > .wrap,
+    header.top .gnb ul,
+    .contents { margin-right: 190px; }
+    header.top nav._order button { width: 1000px; margin: 0 190px 0 auto; }
+    header.top nav._order table { margin-right: 190px; }
+    .quickMenu { margin-left: 0; left: auto; right: 0; }
+}

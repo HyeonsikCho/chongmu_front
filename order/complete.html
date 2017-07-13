@@ -1,0 +1,81 @@
+<?
+/********************************************************************
+***** 프로 젝트 : 총무팀
+***** 개  발  자 : 김성진
+***** 수  정  일 : 2016.05.12
+********************************************************************/
+
+header("Progma:no-cache");
+header("Cache-Control:no-cache,must-revalidate");
+
+/********************************************************************
+***** 라이브러리 인클루드
+********************************************************************/
+
+include_once($_SERVER["DOCUMENT_ROOT"] . "/common/sess_common.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/Template.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/ConnectionPool.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/FrontCommonUtil.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/job/common/CommonDAO.php");
+
+
+/********************************************************************
+***** 클래스 선언
+********************************************************************/
+
+$connectionPool = new ConnectionPool();                 // DB 컨넥션 클래스 선언
+$conn = $connectionPool->getPooledConnection();
+$template = new Template();                                     // 스킨 클래스 선언
+$dao = new CommonDAO();
+$frontUtil = new FrontCommonUtil();
+
+
+/********************************************************************
+***** 로그인 정보 가져오기
+********************************************************************/
+include_once($_SERVER["DOCUMENT_ROOT"] . "/common/login_check.php");
+
+
+/********************************************************************
+***** html 스킨경로 선언
+********************************************************************/
+
+$design_dir = "/design_template";
+
+
+
+/********************************************************************
+***** 기본사용 자바스크립트, css 파일 불러오는 용
+********************************************************************/
+
+$template->reg("dir", "order");
+$template->reg("page", "complete");
+$template->reg("cart_list" , $cart_html);
+$template->reg("order_amnt" , number_format($order_amnt));
+
+
+
+/********************************************************************
+***** 스킨 경로
+********************************************************************/
+
+$template->reg("design_dir", "/design_template");
+$template->reg("order_no", $fb->fb['order_no']);
+$template->reg("t_amount", $fb->fb['t_amount']);
+$template->reg("plzp_point", $fb->fb['plzp_point']);
+$template->reg("title", $fb->fb['EP_product_nm']);
+
+
+/********************************************************************
+***** html 출력
+********************************************************************/
+
+$template->htmlPrint($_SERVER["PHP_SELF"]);
+
+
+/********************************************************************
+***** DB 컨넥션 종료
+********************************************************************/
+
+$conn->Close();
+?>

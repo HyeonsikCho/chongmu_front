@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    [TPH_I/common/head.html]
+	<script src="[TPH_Vdesign_dir]/js/lib/jquery.form.min.js"></script>
+	<script src="[TPH_Vdesign_dir]/js/lib/jquery.number.min.js"></script>
+	<script src="[TPH_Vdesign_dir]/js/product/aft_lib.js"></script>
+
+</head>
+<body>
+<header class="top">
+    [TPH_I/common/header.html]
+</header>
+<section class="contents cart">
+    <header class="title">
+        <ol class="location">
+            <li><a href="/main/main.html" target="_self" title="첫 화면으로"><img src="[TPH_Vdesign_dir]/images/common/contents_location_home.png" alt="HOME"></a></li>
+            <li><span>장바구니</span></li>
+        </ol>
+        <h2><img src="[TPH_Vdesign_dir]/images/order/title/cart.png" alt="장바구니"></h2>
+        <span class="description">주문하실 상품을 선택하세요.</span>
+        <ol class="sequence">
+            <li><img src="[TPH_Vdesign_dir]/images/order/sequence_step1_on.png" alt="STEP1 장바구니"></li>
+            <li><img src="[TPH_Vdesign_dir]/images/order/sequence_step2.png" alt="STEP2 주문서 작성"></li>
+            <li><img src="[TPH_Vdesign_dir]/images/order/sequence_step3.png" alt="STEP3 주문완료"></li>
+        </ol>
+    </header>
+    <article class="notice">
+        <div class="wrap">
+            <h3>주문 전에 확인해주세요.</h3>
+            <ul>
+                <li>장바구니에 담긴 상품은 반드시 주문 버튼을 클릭하여 주문서 작성 및 결제를 완료해야 인쇄 및 제작이 진행됩니다.</li>
+                <li>작업 파일은 주문서 작성 단계에서 올리실 수 있습니다.</li>
+            </ul>
+        </div>
+    </article>
+	<form name='cartlist' id='cartlist' method='post'>
+    <table class="list order _details">
+        <colgroup>
+            <col width="40">
+            <col width="40">
+            <col width="80">
+            <col width="180">
+            <col>
+            <col width="90">
+            <col width="100">
+            <col width="60">
+        </colgroup>
+        <thead>
+            <tr>
+                <th><input type="checkbox" class="_general" id='cart_general'></th>
+                <th>번호</th>
+                <th>담은날</th>
+                <th>인쇄물제목</th>
+                <th>상품정보</th>
+                <th>수량(건)</th>
+                <th>주문금액</th>
+                <th>상세</th>
+            </tr>
+        </thead>
+		    [TPH_Vcart_list]
+    </table>
+	</form>
+    <article class="priceSummary">
+        <dl class="paymentAmount">
+            <dt>결제예정금액</dt>
+            <dd><strong id='price_target'>[TPH_Vorder_amnt]</strong> 원</dd>
+        </dl>
+    </article>
+    <div class="function">
+        <div class="right">
+            <strong class="blue"><button id='c_order'>선택 상품 주문</button></strong>
+            <strong><button id='a_order'>전체 상품 주문</button></strong>
+        </div>
+        <button class="function" id='del_cart'>선택 상품 삭제</button>
+    </div>
+	<form name='ord_f' id='ord_f' method='post'>
+		<input type='hidden' name='ord_no'>
+		<input type='hidden' name='ord_key'>
+	</form>
+</section>
+<footer>[TPH_I/common/footer.html]</footer>
+</body>
+</html>

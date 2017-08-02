@@ -1,0 +1,12 @@
+<?
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/Template.php");
+
+$template = new Template();
+
+$template->reg("dir", "editor");
+$template->reg("page", "editor_product");
+
+$template->reg("design_dir", "/design_template");
+$template->htmlPrint($_SERVER["PHP_SELF"]);
+
+?>

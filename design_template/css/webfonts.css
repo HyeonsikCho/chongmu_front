@@ -1,0 +1,173 @@
+@import url(https://fonts.googleapis.com/css?family=Bevan|Gentium+Book+Basic|PT+Serif|Artifika|Josefin+Slab|Lato:300|Philosopher|Quicksand:700|Amaranth:700|Open+Sans+Condensed:300|IM+Fell+English+SC|League+Script|Mate+SC|Monoton|Ribeye+Marrow|Cookie|Pinyon+Script|Stardos+Stencil|Meddon|Rosario|Special+Elite|Signika:400,300,700|Ropa+Sans|Crimson+Text|Vollkorn|Open+Sans:700|Stint+Ultra+Expanded|Comfortaa|Gravitas+One|Great+Vibes|Pacifico|Dancing+Script|Leckerli+One|Satisfy&subset=latin,latin-ext);
+
+@font-face {
+    font-family: 'Anivers-Regular';
+    src: url('webfonts/127CBA_0.eot');
+    src:
+         url('webfonts/127CBA_0.eot?#iefix') format('embedded-opentype'),
+         url('webfonts/127CBA_0.woff') format('woff'),
+         url('webfonts/127CBA_0.ttf') format('truetype'),
+         url('webfonts/127CBA_0.svg#wf') format('svg');
+}
+
+@font-face {
+    font-family: 'FertigoPro-Regular';
+    src: url('webfonts/148D95_0.eot');
+    src: url('webfonts/148D95_0.eot?#iefix') format('embedded-opentype'),
+         url('webfonts/148D95_0.woff') format('woff'),
+         url('webfonts/148D95_0.ttf') format('truetype'),
+         url('webfonts/148D95_0.svg#wf') format('svg');
+}
+
+@font-face {font-family: 'MuseoSans-500';src: url('webfonts/148D95_1.eot');src: url('webfonts/148D95_1.eot?#iefix') format('embedded-opentype'),url('webfonts/148D95_1.woff') format('woff'),url('webfonts/148D95_1.ttf') format('truetype'),url('webfonts/148D95_1.svg#wf') format('svg');}
+
+@font-face {font-family: 'ReklameScript-RegularDEMO';src: url('webfonts/15374A_0.eot');src: url('webfonts/15374A_0.eot?#iefix') format('embedded-opentype'),url('webfonts/15374A_0.woff') format('woff'),url('webfonts/15374A_0.ttf') format('truetype'),url('webfonts/15374A_0.svg#wf') format('svg');}
+
+@font-face {font-family: 'CallunaSans-Regular';src: url('webfonts/156BB3_0.eot');src: url('webfonts/156BB3_0.eot?#iefix') format('embedded-opentype'),url('webfonts/156BB3_0.woff') format('woff'),url('webfonts/156BB3_0.ttf') format('truetype'),url('webfonts/156BB3_0.svg#wf') format('svg');}
+
+@font-face {font-family: 'Plau';src: url('webfonts/15B4A8_0.eot');src: url('webfonts/15B4A8_0.eot?#iefix') format('embedded-opentype'),url('webfonts/15B4A8_0.woff') format('woff'),url('webfonts/15B4A8_0.ttf') format('truetype'),url('webfonts/15B4A8_0.svg#wf') format('svg');}
+
+
+
+/*
+ * Web Fonts from fontspring.com
+ *
+ * All OpenType features and all extended glyphs have been removed.
+ * Fully installable fonts can be purchased at http://www.fontspring.com
+ *
+ * The fonts included in this stylesheet are subject to the End User License you purchased
+ * from Fontspring. The fonts are protected under domestic and international trademark and
+ * copyright law. You are prohibited from modifying, reverse engineering, duplicating, or
+ * distributing this font software.
+ *
+ * (c) 2010-2011 Fontspring
+ *
+ *
+ *
+ *
+ * The fonts included are copyrighted by the vendor listed below.
+ *
+ * Vendor:      exljbris
+ * License URL: http://www.fontspring.com/fflicense/exljbris
+ *
+ *
+ */
+
+@font-face {
+    font-family: 'MuseoSlab500';
+    src: url('museoslab_500/Museo_Slab_500-webfont.eot');
+    src: url('museoslab_500/Museo_Slab_500-webfont.eot?#iefix') format('embedded-opentype'),
+         url('museoslab_500/Museo_Slab_500-webfont.woff') format('woff'),
+         url('museoslab_500/Museo_Slab_500-webfont.ttf') format('truetype'),
+         url('museoslab_500/Museo_Slab_500-webfont.svg#MuseoSlab500') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'GeoticaThreeRegular';
+    src: url('geoticathree_regular/Geotica_Three-webfont.eot');
+    src: url('geoticathree_regular/Geotica_Three-webfont.eot?#iefix') format('embedded-opentype'),
+         url('geoticathree_regular/Geotica_Three-webfont.woff') format('woff'),
+         url('geoticathree_regular/Geotica_Three-webfont.ttf') format('truetype'),
+         url('geoticathree_regular/Geotica_Three-webfont.svg#GeoticaThreeRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'MuseoSansRounded500';
+    src: url('museosansrounded_500/MuseoSansRounded-500-webfont.eot');
+    src: url('museosansrounded_500/MuseoSansRounded-500-webfont.eot?#iefix') format('embedded-opentype'),
+         url('museosansrounded_500/MuseoSansRounded-500-webfont.woff') format('woff'),
+         url('museosansrounded_500/MuseoSansRounded-500-webfont.ttf') format('truetype'),
+         url('museosansrounded_500/MuseoSansRounded-500-webfont.svg#MuseoSansRounded500') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'MuseoSlab900';
+    src: url('museoslab_900/Museo_Slab_900-webfont.eot');
+    src: url('museoslab_900/Museo_Slab_900-webfont.eot?#iefix') format('embedded-opentype'),
+         url('museoslab_900/Museo_Slab_900-webfont.woff') format('woff'),
+         url('museoslab_900/Museo_Slab_900-webfont.ttf') format('truetype'),
+         url('museoslab_900/Museo_Slab_900-webfont.svg#MuseoSlab900') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'MuseoSansRounded1000';
+    src: url('museosansrounded_1000/MuseoSansRounded-1000-webfont.eot');
+    src: url('museosansrounded_1000/MuseoSansRounded-1000-webfont.eot?#iefix') format('embedded-opentype'),
+         url('museosansrounded_1000/MuseoSansRounded-1000-webfont.woff') format('woff'),
+         url('museosansrounded_1000/MuseoSansRounded-1000-webfont.ttf') format('truetype'),
+         url('museosansrounded_1000/MuseoSansRounded-1000-webfont.svg#MuseoSansRounded1000') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'LeagueGothicRegular';
+    src: url('league_gothic/League_Gothic-webfont.eot');
+    src: url('league_gothic/League_Gothic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('league_gothic/League_Gothic-webfont.woff') format('woff'),
+         url('league_gothic/League_Gothic-webfont.ttf') format('truetype'),
+         url('league_gothic/League_Gothic-webfont.svg#LeagueGothicRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'nekoyanagiregular';
+    src: url('nekoyanagi/nekoyanagi-webfont.eot');
+    src: url('nekoyanagi/nekoyanagi-webfont.eot?#iefix') format('embedded-opentype'),
+         url('nekoyanagi/nekoyanagi-webfont.woff') format('woff'),
+         url('nekoyanagi/nekoyanagi-webfont.ttf') format('truetype'),
+         url('nekoyanagi/nekoyanagi-webfont.svg#nekoyanagiregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Gotham-Medium';
+    src: url('gotham/gotham-medium.eot');
+    src: url('gotham/gotham-medium.woff') format('woff'),
+         url('gotham/gotham-medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham-Light';
+    src: url('gotham/gotham-light.eot');
+    src: url('gotham/gotham-light.woff') format('woff'),
+         url('gotham/gotham-light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DIN-Medium';
+    src: url('din/din-medium.eot');
+    src: url('din/din-medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Frutiger-Condensed';
+    src: url('frutiger-57-condensed.eot');
+    src: url('frutiger-57-condensed.woff') format('woff'),
+         url('frutiger-57-condensed.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

@@ -1,0 +1,134 @@
+#pageSelector.landscape #front {
+    background: url(/design_template/images/editor/front_side_bcc_up.png) no-repeat center center;
+    width:  125px;
+    height: 78px;
+}
+
+#pageSelector.landscape #front:hover, #pageSelector.landscape #front.active {
+    background: url(/design_template/images/editor/front_side_bcc_over.png) no-repeat;
+}
+
+#pageSelector.landscape #back {
+    background: url(/design_template/images/editor/back_side_bcc_up.png) no-repeat center center;
+    width:  125px;
+    height: 78px;
+}
+
+#pageSelector.landscape #back:hover, #pageSelector.landscape #back.active {
+    background: url(/design_template/images/editor/back_side_bcc_over.png) no-repeat;
+}
+
+#pageSizeSelector .mini .img .portrait {
+    width: 36px;
+    background-image: url(/design_template/images/editor/mini_bc_bcc_port.png);
+}
+
+#pageSizeSelector .mini .img .landscape {
+    width: 64px;
+    background-image: url(/design_template/images/editor/mini_bc_bcc.png);
+}
+
+#pageSizeSelector .mini .img .portrait:hover, #pageSizeSelector .mini .img .portrait.active {
+    width: 36px;
+    background-image: url(/design_template/images/editor/mini_bc_bcc_port.png);
+}
+
+#pageSizeSelector .mini .img .landscape:hover, #pageSizeSelector .mini .img .landscape.active {
+    width: 64px;
+    background-image: url(/design_template/images/editor/mini_bc_bcc.png);
+}
+
+#pageSizeSelector .standard .img .portrait {
+    width: 42px;
+    background-image: url(/design_template/images/editor/flyer_2.75x4.25_lamini_2.75x4.25_landscape_up.png);
+}
+
+#pageSizeSelector .standard .img .landscape {
+    width: 76px;
+    background-image: url(/design_template/images/editor/flyer_2.75x4.25_upmini_2.75x4.25_up.png);
+}
+
+#pageSizeSelector .standard .img .portrait:hover, #pageSizeSelector .standard .img .portrait.active {
+    width: 42px;
+    background-image: url(/design_template/images/editor/flyer_2.75x4.25_lamini_2.75x4.25_landscape_up.png);
+}
+
+#pageSizeSelector .standard .img .landscape:hover, #pageSizeSelector .standard .img .landscape.active {
+    width: 76px;
+    background-image: url(/design_template/images/editor/flyer_2.75x4.25_upmini_2.75x4.25_up.png);
+}
+
+#pageSizeSelector .large .img .portrait {
+    width: 48px;
+    background-image: url(/design_template/images/editor/flyer_5x7_por_upmini_5x7_por_up.png);
+}
+
+#pageSizeSelector .large .img .landscape {
+    width: 86px;
+    background-image: url(/design_template/images/editor/flyer_5x7_por_overmini_5x7_por_over.png);
+}
+
+#pageSizeSelector .large .img .portrait:hover, #pageSizeSelector .large .img .portrait.active {
+    width: 48px;
+    background-image: url(/design_template/images/editor/flyer_5x7_por_upmini_5x7_por_up.png);
+}
+
+#pageSizeSelector .large .img .landscape:hover, #pageSizeSelector .large .img .landscape.active {
+    width: 86px;
+    background-image: url(/design_template/images/editor/flyer_5x7_por_overmini_5x7_por_over.png);
+}
+
+.cardTemplate .tH {
+    font-size: 14px;
+    color: #00ABFF;
+}
+
+#viewall {
+    color: #00ABFF;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 40px 0 10px;
+    font-size: 16px;
+}
+
+select#theme {
+    color: #00ABFF;
+    padding: 5px;
+    background: #eee;
+    font-family: MuseoSansRounded-700,sans-serif;
+    border: 0px solid #fff;
+    font-size: 16px;
+}
+
+hr {
+    border: 0px solid #fff;
+    background-color: #eee;
+    height: 2px;
+    margin: 15px 0;
+}
+
+a.cardTemplate, a.cardTemplate:hover {
+    text-decoration: none;
+    height: 205px;
+    padding: 20px 32px 120px 32px;
+    position: relative;
+}
+
+.cardTemplate > img {
+    border: 5px solid #E5E5E5;
+}
+
+.cardTemplate img.newicon {
+    position:absolute;
+    top:20px;
+    left:32px;
+    border:none;
+}
+
+.cardTemplate.portrait img.newicon {
+    left:70px;
+}
+
+.cardTemplates .cardTemplate.portrait {
+    margin: -56.5px 0 56.5px 0;
+}

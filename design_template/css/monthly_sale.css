@@ -1,0 +1,316 @@
+.thumb {
+    position: relative;
+}
+
+/* 2016 April Start */
+.magnet .thumb {
+    left: -130px;
+}
+.wooden .thumb {
+    left: -40px;
+}
+.black .thumb {
+    left: -10px;
+}
+.color .thumb {
+    left: 0px;
+}
+.envelope .thumb {
+    bottom: -30px;
+}
+/* 2016 April End */
+
+/* 2016 May Start */
+.dark-brown .thumb {
+    left: -100px;
+}
+.box .thumb {
+    left: -80px;
+}
+/* 2016 May End */
+
+/* 2016 September Start */
+.color .thumb {
+    left: -171px;
+}
+.uncoated .thumb {
+    left: -100px;
+}
+.kraft .thumb {
+    left: -83px;
+}
+.card-holder .thumb {
+    left: -93px;
+}
+.wrapping .thumb {
+    left: -95px;
+}
+.tshirts .thumb {
+    left: 45px;
+}
+/* 2016 September End */
+
+/* 2016 December Start */
+
+.free_business_card_cream img{
+    left:-100px;
+}
+
+.sale-item.free_business_card_cream .save-box, .sale-item.free_business_card_cream .save{
+    display:none;
+}
+
+.sale-item.free_business_card .save-box, .sale-item.free_business_card .save{
+    display:none;
+}
+
+
+/* 2016 December End */
+
+.sale-item.sameday-product .preview .same-day {
+    display: block;
+}
+
+
+.sale-item {
+    font-family: MuseoSansRounded-700,sans-serif;
+    padding-bottom: 60px;
+    position: relative;
+}
+
+.sale-item h3 {
+    color: #00d6ef;
+    font-size: 16px;
+    margin: 5px 0;
+    font-weight: normal;
+    padding: 0 0 0 6px;
+}
+
+.sale-item .desc {
+    font-size: 12px;
+    color: #443d3d;
+    margin: 10px 0 10px;
+    font-family: 'ProximaNova-Light', sans-serif;
+    /*font-weight: 400;*/
+    padding: 0 0 0 8px;
+    line-height: 16px;
+    letter-spacing: .4px;
+    height: 50px;
+}
+
+.sale-item .preview {
+    width: 243px;
+    height: 243px;
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+}
+
+.sale-item .preview .thumb {
+    height: 243px;
+    display: inline-block;
+    margin: auto;
+}
+
+.sale-item.img-center .preview .thumb {
+    margin-left: -45%;
+}
+
+.sale-item .preview .new {
+    display: none;
+    color: #fff;
+    background: #F10968;
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    right: 0;
+    padding: 8px 12px;
+    font-size: 15px;
+}
+
+.sale-item.new .preview .new {
+    display: block;
+}
+
+.sale-item .preview .same-day {
+    display: none;
+    color: #fff;
+    background: red;
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    right: 0;
+    padding: 8px 12px;
+    font-size: 15px;
+}
+
+.sale-item.same-day .preview .same-day {
+    display: block;
+}
+
+.sale-item .preview .sold {
+    display: none;
+    color: #fff;
+    background: #FF0000;
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    right: 0;
+    padding: 8px 12px;
+    font-size: 15px;
+}
+
+.sale-item.sold .preview .sold {
+    display: block;
+    text-transform: uppercase;
+}
+
+.sale-item.desc2 .desc {
+    min-height: 36px;
+}
+
+.sale-item.desc3 .desc {
+    min-height: 54px;
+}
+
+.sale-item.desc4 .desc {
+    min-height: 72px;
+}
+
+.sale-item.desc5 .desc {
+    min-height: 90px;
+}
+
+.sale-item .price {
+    color: #ff00b4 !important;
+    font-size: 30px;
+    display: inline-block;
+    text-decoration: none;
+    margin: 1px 0px 0px 0;
+    vertical-align: middle;
+    padding: 0 0 0 8px;
+}
+
+.sale-item .save {
+    color: #fff !important;
+    background: #FFFFFF;
+    font-size: 16px;
+    padding: 3px;
+    display: block;
+    border-radius: 6px;
+    text-decoration: none;
+    vertical-align: middle;
+    position: absolute;
+    left: 10px;
+}
+.sale-item .save .save-box {
+    border-radius: 6px;
+    padding: 6px;
+    background: #46D1E7;
+    display: block;
+}
+
+.sale-item .usd {
+    color: #fa9319 !important;
+    font-size: 16px;
+    text-decoration: none;
+    margin: 5px 20px 0px 0;
+    vertical-align: middle;
+    padding: 0 0 0 8px;
+    display: inline-block;
+}
+
+.sale-item .buy-now {
+    color: #000000;
+    font-family: 'ProximaNova-Bold';
+    font-size: 26px;
+    text-decoration: none;
+    display: inline-block;
+    padding-left: 8px;
+}
+
+.sale-item .more-info {
+    color: #ff00b4;
+    text-decoration: none;
+}
+
+.sale-item .overlay-bg {
+    background: #27CBC0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 10;
+}
+
+.sale-item .overlay-actions {
+    position: absolute;
+    z-index: 20;
+    top: 100px;
+    left: 30px;
+    opacity: 0;
+}
+
+.sale-item .overlay-actions a {
+    display: inline-block;
+    text-decoration: none;
+    font-family: 'ProximaNova-Light', sans-serif;
+    font-weight: 400;
+    background-color: #252525;
+    padding: 8px 12px;
+    color: #FFF;
+    font-size: 13px;
+    margin: 4px;
+    border-radius: 3px;
+}
+
+.stock-icon {
+    display: inline-block;
+    margin: 0 0 0 5px;
+    height: 16px;
+    width: 16px;
+    border-radius: 3px;
+    position: relative;
+    bottom: -4px;
+}
+
+.sale-item .preview .stock-preview {
+    width: 243px;
+    height: 243px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.sale-item .preview .sold-note {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 40px 20px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+}
+
+.sale-item .free {
+    display: none;
+}
+.sale-item.free_business_card .free,
+.sale-item.free_business_card_cream .free {
+    display: inline;
+    color: #ff96d8;
+    font-size: 40px;
+    font-family: 'futura-pt';
+    font-weight: bold;
+}
+
+.sale-item.free_business_card .price-text,
+.sale-item.free_business_card_cream .price-text {
+    display: none;
+}
+.sale-item.free_business_card .usd,
+.sale-item.free_business_card_cream .usd {
+    display: none;
+}
